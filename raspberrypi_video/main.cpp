@@ -13,6 +13,10 @@
 #include "MyLabel.h"
 #include "Lepton_I2C.cpp"
 
+//ADDED
+#include <iostream>
+using namespace std;
+
 int main( int argc, char **argv )
 {
 	//create the app
