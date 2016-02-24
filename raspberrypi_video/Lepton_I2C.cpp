@@ -3,7 +3,7 @@
 #include "leptonSDKEmb32PUB/LEPTON_SDK.h"
 #include "leptonSDKEmb32PUB/LEPTON_SYS.h"
 #include "leptonSDKEmb32PUB/LEPTON_Types.h"
-#include "leptonSDKEmb32PUB/LEPTON_AGC.h" /ADDED
+#include "leptonSDKEmb32PUB/LEPTON_AGC.h" //ADDED
 
 bool _connected;
 
