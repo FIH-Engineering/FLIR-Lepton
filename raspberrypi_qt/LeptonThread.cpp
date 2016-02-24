@@ -1,3 +1,4 @@
+//andrew
 #include "LeptonThread.h"
 
 #include <QString>
