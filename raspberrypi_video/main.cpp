@@ -51,6 +51,9 @@ int main( int argc, char **argv )
 	
 	myWidget->show();
 
+	//ADDED
+	cout<<lepton_temperature();
+	
 	return a.exec();
 }
 
