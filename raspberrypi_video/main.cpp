@@ -11,6 +11,7 @@
 
 #include "LeptonThread.h"
 #include "MyLabel.h"
+#include "Lepton_I2C.h"
 
 int main( int argc, char **argv )
 {
