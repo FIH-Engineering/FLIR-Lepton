@@ -31,6 +31,10 @@ int lepton_temperature() {
           lepton_connect();
     }
    result = ((LEP_GetSysFpaTemperatureKelvin(&_port, &fpa_temp_kelvin)));
+   
+   //ADDED
+   cout<<fpa_temp_kelvin;
+   
    return ( fpa_temp_kelvin);
 }
 
