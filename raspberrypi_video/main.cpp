@@ -11,7 +11,7 @@
 
 #include "LeptonThread.h"
 #include "MyLabel.h"
-#include "Lepton_I2C.h"
+#include "Lepton_I2C.cpp"
 
 int main( int argc, char **argv )
 {
@@ -51,6 +51,8 @@ int main( int argc, char **argv )
 	thread->start();
 	
 	myWidget->show();
+	int outTemp = lepton_temperature();
+	cout<<outTemp;
 	
 	return a.exec();
 }
