@@ -13,16 +13,12 @@
 #include "MyLabel.h"
 #include "Lepton_I2C.cpp"
 
-//ADDED
-#include <iostream>
-using namespace std;
-
 
 
 int main( int argc, char **argv )
 {
 	
-	qDebug()<<"Testing 1, 2, 3...";
+	qDebug()<<"LeptonTemperatureValue: "<<lepton_temperature();
 	
 	
 	//create the app
@@ -61,8 +57,7 @@ int main( int argc, char **argv )
 	thread->start();
 	
 	myWidget->show();
-	int outTemp = lepton_temperature();
-	cout<<outTemp;
+	
 	
 	
 	return a.exec();
