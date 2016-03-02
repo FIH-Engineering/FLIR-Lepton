@@ -17,8 +17,14 @@
 #include <iostream>
 using namespace std;
 
+
+
 int main( int argc, char **argv )
 {
+	
+	cout<<"running";
+	
+	
 	//create the app
 	QApplication a( argc, argv );
 	
@@ -57,6 +63,7 @@ int main( int argc, char **argv )
 	myWidget->show();
 	int outTemp = lepton_temperature();
 	cout<<outTemp;
+	
 	
 	return a.exec();
 }
