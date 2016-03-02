@@ -80,6 +80,13 @@ void LeptonThread::run()
 		}
 
 		float diff = maxValue - minValue;
+		
+		//ADDED BELOW \
+		qDebug()<<"MaxValue"<<maxValue<<endl;
+		qDebug()<<"MinValue"<<minValue<<endl;
+		//Done Adding  gugvhj
+		
+		
 		float scale = 255/diff;
 		QRgb color;
 		for(int i=0;i<FRAME_SIZE_UINT16;i++) {
