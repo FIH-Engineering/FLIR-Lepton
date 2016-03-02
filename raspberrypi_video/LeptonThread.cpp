@@ -81,7 +81,7 @@ void LeptonThread::run()
 
 		float diff = maxValue - minValue;
 		
-		//ADDED BELOW \
+		//ADDED BELOW 
 		qDebug()<<"MaxValue"<<maxValue<<endl;
 		qDebug()<<"MinValue"<<minValue<<endl;
 		//Done Adding  gugvhj
