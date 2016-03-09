@@ -42,7 +42,7 @@ int main( int argc, char **argv )
 
 	//create a FFC button
 	QPushButton *button1 = new QPushButton("Perform FFC", myWidget);
-	button1->setGeometry(1000/2-50, 290-35, 100, 30);
+	button1->setGeometry(2000/2-50, 290-35, 100, 30);
 
 	//create a thread to gather SPI data
 	//when the thread emits updateImage, the label should update its image accordingly
