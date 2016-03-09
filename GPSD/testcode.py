@@ -12,8 +12,8 @@ while True:
     	# print report
 			
 	    if report['class'] == 'TPV':
-	    if hasattr(report, 'time'):
-			print report.time
+	        if hasattr(report, 'time'):
+			    print report.time
         
 	except KeyError:
     	pass
