@@ -27,7 +27,7 @@ int main( int argc, char **argv )
 	//create an image placeholder for myLabel
 	//fill the top left corner with red, just bcuz
 	QImage myImage;
-	myImage = QImage(320, 240, QImage::Format_RGB888);
+	myImage = QImage(520, 240, QImage::Format_RGB888);
 	QRgb red = qRgb(255,0,0);
 	for(int i=0;i<80;i++) {
 		for(int j=0;j<60;j++) {
