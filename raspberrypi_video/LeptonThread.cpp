@@ -88,11 +88,11 @@ void LeptonThread::run()
 		//qDebug()<<"MaxValue"<<maxValue<<endl;
 		//qDebug()<<"MinValue"<<minValue<<endl;
 
-		maxTemp = 15.98*(maxValue) + 7063.79;
-		minTemp = 15.98*(minValue) +7063.79;
+		//maxTemp = 15.98*(maxValue) + 7063.79;
+		//minTemp = 15.98*(minValue) +7063.79;
 		
-		qDebug()<<"Max Temp"<<maxTemp<<endl;
-		qDebug()<<"Min Temp"<<minTemp<<endl;
+		//qDebug()<<"Max Temp"<<maxTemp<<endl;
+		//qDebug()<<"Min Temp"<<minTemp<<endl;
 		//Done Adding  
 
 		maxTemp = (maxValue - 7063.78)/15.98;
