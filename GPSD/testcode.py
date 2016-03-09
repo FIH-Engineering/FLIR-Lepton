@@ -16,9 +16,9 @@ while True:
 			    print report.time
         
 	except KeyError:
-    	pass
+        pass
     except KeyboardInterrupt:
-    	quit()
+        quit()
 	except StopIteration:
-    	session = None
-    	print "GPSD has terminated"
+        session = None
+        print "GPSD has terminated"
