@@ -22,7 +22,7 @@ int main( int argc, char **argv )
 	QApplication a( argc, argv );
 	
 	QWidget *myWidget = new QWidget;
-	myWidget->setGeometry(600, 500, 940, 490);
+	myWidget->setGeometry(1500, 1500, 1500, 1500);
 
 	//create an image placeholder for myLabel
 	//fill the top left corner with red, just bcuz
@@ -37,7 +37,7 @@ int main( int argc, char **argv )
 
 	//create a label, and set it's image to the placeholder
 	MyLabel myLabel(myWidget);
-	myLabel.setGeometry(10, 10, 920, 240);
+	myLabel.setGeometry(10, 10, 1500, 1500);
 	myLabel.setPixmap(QPixmap::fromImage(myImage));
 
 	//create a FFC button
