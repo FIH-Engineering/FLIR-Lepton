@@ -9,13 +9,10 @@
 #define PACKETS_PER_FRAME 60
 #define FRAME_SIZE_UINT16 (PACKET_SIZE_UINT16*PACKETS_PER_FRAME)
 #define FPS 27;
-<<<<<<< HEAD
+
 int maxTemp, minTemp;
-=======
 
-int minTemp, maxTemp;
 
->>>>>>> 77daa87a608cf1bcc0dd438198db4b3340276db8
 LeptonThread::LeptonThread() : QThread()
 {
 }
@@ -90,21 +87,21 @@ void LeptonThread::run()
 		//ADDED BELOW 
 		//qDebug()<<"MaxValue"<<maxValue<<endl;
 		//qDebug()<<"MinValue"<<minValue<<endl;
-<<<<<<< HEAD
+
 		maxTemp = 15.98*(maxValue) + 7063.79;
 		minTemp = 15.98*(minValue) +7063.79;
 		
 		qDebug()<<"Max Temp"<<maxTemp<<endl;
 		qDebug()<<"Min Temp"<<minTemp<<endl;
-		//Done Adding  gugvhj
-=======
+		//Done Adding  
+
 		maxTemp = (maxValue - 7063.78)/15.98;
 		minTemp = (minValue - 7063.78)/15.98;
 		qDebug()<<"Max Temp"<<maxTemp;
 		qDebug()<<"Min Temp"<<minTemp;
 		
 		//Done Adding
->>>>>>> 77daa87a608cf1bcc0dd438198db4b3340276db8
+
 		
 		
 		float scale = 255/diff;
