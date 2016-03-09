@@ -21,4 +21,4 @@ while True:
      #   quit()
 	except StopIteration:
         session = None
-            print "GPSD has terminated"
+        print "GPSD has terminated"
