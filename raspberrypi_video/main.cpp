@@ -22,7 +22,7 @@ int main( int argc, char **argv )
 	QApplication a( argc, argv );
 	
 	QWidget *myWidget = new QWidget;
-	myWidget->setGeometry(10, 10, 1000, 950);
+	myWidget->setGeometry(20, 20, 1000, 950);
 
 	//create an image placeholder for myLabel
 	//fill the top left corner with red, just bcuz
