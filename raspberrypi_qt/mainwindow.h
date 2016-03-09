@@ -11,7 +11,7 @@ class QGridLayout;
 class MainWindow : public QMainWindow {
     Q_OBJECT
 
-    enum { ImageWidth = 520, ImageHeight = 440 };
+    enum { ImageWidth = 820, ImageHeight = 440 };
 
     static int snapshotCount;
 
