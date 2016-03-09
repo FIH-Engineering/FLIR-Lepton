@@ -19,6 +19,6 @@ while True:
      #   pass
     #except KeyboardInterrupt:
      #   quit()
-	except StopIteration:
-        session = None
-        print "GPSD has terminated"
+	#except StopIteration:
+        #session = None
+        #print "GPSD has terminated"
