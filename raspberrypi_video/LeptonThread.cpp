@@ -23,7 +23,7 @@ LeptonThread::~LeptonThread() {
 void LeptonThread::run()
 {
 	//create the initial image
-	myImage = QImage(80, 60, QImage::Format_RGB888);
+	myImage = QImage(180, 60, QImage::Format_RGB888);
 
 	//open spi port
 	SpiOpenPort(0);
@@ -84,12 +84,6 @@ void LeptonThread::run()
 
 		float diff = maxValue - minValue;
 		
-		//ADDED BELOW 
-		//qDebug()<<"MaxValue"<<maxValue<<endl;
-		//qDebug()<<"MinValue"<<minValue<<endl;
-
-		//maxTemp = 15.98*(maxValue) + 7063.79;
-		//minTemp = 15.98*(minValue) +7063.79;
 		
 		//qDebug()<<"Max Temp"<<maxTemp<<endl;
 		//qDebug()<<"Min Temp"<<minTemp<<endl;
