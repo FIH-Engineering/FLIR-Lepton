@@ -84,16 +84,11 @@ void LeptonThread::run()
 
 		float diff = maxValue - minValue;
 		
-		
-		//qDebug()<<"Max Temp"<<maxTemp<<endl;
-		//qDebug()<<"Min Temp"<<minTemp<<endl;
-		//Done Adding  
-
+		//Calculate max and min temp
 		maxTemp = (maxValue - 7063.78)/15.98;
 		minTemp = (minValue - 7063.78)/15.98;
 		qDebug()<<"Max Temp"<<maxTemp;
 		qDebug()<<"Min Temp"<<minTemp;
-		
 		//Done Adding
 
 		

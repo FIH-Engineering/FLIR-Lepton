@@ -19,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
+	
 
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
@@ -36,6 +37,23 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 
+	//MAYBE
+	QWidget *maxWidget = new QWidget();
+    setCentralWidget(maxWidget);
+	
+    maxlayout = new QGridLayout();
+    maxWidget->setLayout(maxlayout);
+
+    maxLabel = new QLabel();
+    maxlayout->addWidget(maxLabel, 1, 10, Qt::AlignCenter);
+
+    maxthread = new LeptonThread();
+    connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
+	
+	QPushButton *maxButton = new QPushButton(maxTemp);
+    maxlayout->addWidget(maxButton, 1, 0, Qt::AlignCenter);
+	//END OF MAYBE
+	
     thread->start();
 }
 
@@ -46,6 +64,14 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     // Record the raw data and min/max values
     memcpy(&rawData[0], data, 2*LeptonThread::FrameWords);
     rawMin = minValue; rawMax = maxValue;
+	
+	//MAYBE
+	//Calculate max and min temp
+	maxTemp = (maxValue - 7063.78)/15.98;
+	minTemp = (minValue - 7063.78)/15.98;
+	qDebug()<<"Max Temp"<<maxTemp;
+	qDebug()<<"Min Temp"<<minTemp;
+	//Done Adding
 
     // Map "rawData" to rgb values in "rgbImage" via the colormap
     int diff = maxValue - minValue + 1;
@@ -77,4 +103,6 @@ void MainWindow::saveSnapshot() {
 
     // JPG image, top quality
     rgbImage.save(QString("rgb%1.jpg").arg(snapshotCount), "JPG", 100);
+	
+	
 }

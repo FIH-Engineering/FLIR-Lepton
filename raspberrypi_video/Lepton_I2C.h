@@ -2,9 +2,6 @@
 #define LEPTON_I2C
 
 void lepton_perform_ffc();
-int lepton_temperature(); //ADDED
-
-
 
 
 #endif

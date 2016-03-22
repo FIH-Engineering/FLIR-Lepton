@@ -23,6 +23,7 @@ int main( int argc, char **argv )
 	
 	QWidget *myWidget = new QWidget;
 	myWidget->setGeometry(0, 20, 1237, 944);
+	
 
 	//create an image placeholder for myLabel
 	//fill the top left corner with red, just bcuz
@@ -39,7 +40,9 @@ int main( int argc, char **argv )
 	MyLabel myLabel(myWidget);
 	myLabel.setGeometry(10, 10, 1100, 900);
 	myLabel.setPixmap(QPixmap::fromImage(myImage));
-
+	
+	
+	
 	//create a FFC button
 	QPushButton *button1 = new QPushButton("Perform FFC", myWidget);
 	button1->setGeometry(2000/2-50, 290-35, 100, 30);
@@ -49,14 +52,15 @@ int main( int argc, char **argv )
 	LeptonThread *thread = new LeptonThread();
 	QObject::connect(thread, SIGNAL(updateImage(QImage)), &myLabel, SLOT(setImage(QImage)));
 	
+
+	
 	//connect ffc button to the thread's ffc action
 	QObject::connect(button1, SIGNAL(clicked()), thread, SLOT(performFFC()));
 	thread->start();
 	
 	myWidget->show();
 	
-	
-	
+
 	return a.exec();
 }
 
