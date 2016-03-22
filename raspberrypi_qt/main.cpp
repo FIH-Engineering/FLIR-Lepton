@@ -8,7 +8,7 @@ int main( int argc, char **argv )
 	
     MainWindow *mainWindow = new MainWindow();
     mainWindow.setWindowState(Qt::WindowFullScreen); ///
-    mainWindow->show();
+    mainWindow.show();
 
 	return a.exec();
 }
