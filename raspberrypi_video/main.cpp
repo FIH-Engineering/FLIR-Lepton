@@ -43,8 +43,9 @@ int main( int argc, char **argv )
 	
 
 	MyLabel mytwoLabel(myWidget);
-	mytwoLabel.setGeometry(500, 500, 200, 200);
-	mytwoLabel->setText("What ever text");
+	mytwoLabel.setGeometry(500, 700, 200, 200);
+	//need pixmap or use other method
+	mytwoLabel->setText("text");
 
 	//create a FFC button
 	QPushButton *button1 = new QPushButton("Perform FFC", myWidget);
