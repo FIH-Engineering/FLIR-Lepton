@@ -37,7 +37,7 @@ int main( int argc, char **argv )
 
 	//create a label, and set it's image to the placeholder
 	MyLabel myLabel(myWidget);
-	myLabel.setGeometry(10, 10, 1100, 900);
+	myLabel.setGeometry(10, 10, 240, 320);
 	myLabel.setPixmap(QPixmap::fromImage(myImage));
 
 	//create a FFC button
