@@ -22,11 +22,11 @@ int main( int argc, char **argv )
 	QApplication a( argc, argv );
 	
 	QWidget *myWidget = new QWidget;
-<<<<<<< HEAD
+
 	myWidget->setGeometry(0, 20, 1237, 944);
-=======
+
 	myWidget->setGeometry(0, 20, 300, 400);
->>>>>>> origin/master
+
 	
 
 	//create an image placeholder for myLabel
@@ -44,18 +44,12 @@ int main( int argc, char **argv )
 	MyLabel myLabel(myWidget);
 	myLabel.setGeometry(10, 10, 700, 500);
 	myLabel.setPixmap(QPixmap::fromImage(myImage));
-	
-<<<<<<< HEAD
-	
-	
-=======
 
 	MyLabel mytwoLabel(myWidget);
 	mytwoLabel.setGeometry(500, 700, 200, 200);
 	//need pixmap or use other method
 	mytwoLabel->setText("text");
 
->>>>>>> origin/master
 	//create a FFC button
 	QPushButton *button1 = new QPushButton("Perform FFC", myWidget);
 	button1->setGeometry(2000/2-50, 290-35, 100, 30);
@@ -64,16 +58,12 @@ int main( int argc, char **argv )
 	//when the thread emits updateImage, the label should update its image accordingly
 	LeptonThread *thread = new LeptonThread();
 	QObject::connect(thread, SIGNAL(updateImage(QImage)), &myLabel, SLOT(setImage(QImage)));
-	
-<<<<<<< HEAD
 
-=======
+
+
 	
 	/////// use above format for update label
 	
-	
-	
->>>>>>> origin/master
 	
 	//connect ffc button to the thread's ffc action
 	QObject::connect(button1, SIGNAL(clicked()), thread, SLOT(performFFC()));
