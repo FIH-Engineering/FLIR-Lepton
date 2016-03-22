@@ -50,6 +50,12 @@ int main( int argc, char **argv )
 	LeptonThread *thread = new LeptonThread();
 	QObject::connect(thread, SIGNAL(updateImage(QImage)), &myLabel, SLOT(setImage(QImage)));
 	
+	
+	/////// use above format for update label
+	
+	
+	
+	
 	//connect ffc button to the thread's ffc action
 	QObject::connect(button1, SIGNAL(clicked()), thread, SLOT(performFFC()));
 	thread->start();
