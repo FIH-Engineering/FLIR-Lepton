@@ -35,11 +35,12 @@ MainWindow::MainWindow(QWidget *parent)
     thread = new LeptonThread();
 	
 	//new
-	QLabel *label = new QLabel();
+	label = new QLabel();
 	layout->addWidget(label,10,10, Qt::AlignCenter);
+	QString maxstuff = "\n \n \t default";
+	label->setText(maxstuff);
 	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	layout->addWidget(label,10,10,Qt::AlignCenter);
-	//label->setText("\t \t \n \n \t DEFAULT");
+	//label->setText();
 	//label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 	//
 	
@@ -87,11 +88,14 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     imageLabel->setPixmap(pixmap);	
 	
 	
-	//maybe
+	/*maybe
 	QString labelvalue = QString::number(maxTemp);
 	QLabel *maxLabel = new QLabel();
 	maxLabel->setText(QString::number(maxTemp));
-	layout->addWidget(maxLabel,10,10,Qt::AlignCenter);
+	layout->addWidget(maxLabel,10,10,Qt::AlignCenter);*/
+	
+	label->setText(QString::number(maxTemp);
+	
 	//end maybe
 	
 }
