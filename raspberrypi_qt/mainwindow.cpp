@@ -86,7 +86,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	
 	//maybe
 	QString labelvalue = QString::number(maxTemp);
-	layout.label->setText(labelvalue);
+	layout->label->setText(labelvalue);
 	//end maybe
 	
 }
