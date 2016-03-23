@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 	QLabel *label = new QLabel(this);
 	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	layout->addWidget(label,10,10,Qt::AlignCenter);
-	label->setText(QString::number(maxTemp));
+	label->setText("DEFAULT");
 	//label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 	//
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
@@ -85,8 +85,8 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	
 	
 	//maybe
-	QLabel *labelMax;
-	labelMax->setText(QString::number(maxTemp));
+	QString labelvalue = number(maxTemp);
+	label->setText(labelvalue);
 	//end maybe
 	
 }
