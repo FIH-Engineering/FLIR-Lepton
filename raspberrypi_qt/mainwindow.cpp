@@ -11,7 +11,7 @@
 
 #include "LeptonThread.h"
 int minTemp, maxTemp;
-QLabel *label = new QLabel();
+QLabel *label;
 
 int MainWindow::snapshotCount = 0;
 
@@ -35,7 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     thread = new LeptonThread();
 	//new
-	
+	*label = new QLabel();
 	layout->addWidget(label,10,10, Qt::AlignCenter);
 	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	layout->addWidget(label,10,10,Qt::AlignCenter);
