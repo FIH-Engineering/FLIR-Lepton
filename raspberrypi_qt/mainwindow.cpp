@@ -35,6 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
     thread = new LeptonThread();
 	//new
 	QLabel *label = new QLabel();
+	layout->addWidget(label,10,10, Qt::AlignCenter);
 	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	layout->addWidget(label,10,10,Qt::AlignCenter);
 	label->setText("DEFAULT");
