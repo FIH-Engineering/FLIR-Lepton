@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//maybe
 	QLabel *label = new QLabel(this);
 	label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	label->setText("first line\nsecond" maxTemp);
+	label->setText("\n", maxTemp);
 	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 	//end maybe
 	
