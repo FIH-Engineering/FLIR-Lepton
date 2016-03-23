@@ -34,16 +34,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     thread = new LeptonThread();
 	
-	//new
-	label = new QLabel();
-	layout->addWidget(label,10,10, Qt::AlignCenter);
-	QString maxstuff = "\n \n \t default";
-	label->setText(maxstuff);
-	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	//label->setText();
-	//label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
-	//
-	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	connect(label, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *,int,int)));
 	
@@ -86,17 +76,6 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     QPainter painter(&pixmap);
     // ... mark up pixmap, if so desired
     imageLabel->setPixmap(pixmap);	
-	
-	
-	/*maybe
-	QString labelvalue = QString::number(maxTemp);
-	QLabel *maxLabel = new QLabel();
-	maxLabel->setText(QString::number(maxTemp));
-	layout->addWidget(maxLabel,10,10,Qt::AlignCenter);*/
-	
-	label->setText(QString::number(maxTemp));
-	
-	//end maybe
 	
 }
 
