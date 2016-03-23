@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 
 	//MAYBE
-	QWidget *maxWidget = new QWidget();
+	/*QWidget *maxWidget = new QWidget();
     setCentralWidget(maxWidget);
 	
     maxlayout = new QGridLayout();
@@ -52,7 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	QPushButton *maxButton = new QPushButton(maxTemp);
     maxlayout->addWidget(maxButton, 1, 0, Qt::AlignCenter);
-	//END OF MAYBE
+	//END OF MAYBE*/
 	
     thread->start();
 }
