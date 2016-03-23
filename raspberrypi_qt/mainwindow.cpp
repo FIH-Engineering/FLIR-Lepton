@@ -91,6 +91,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	QString labelvalue = QString::number(maxTemp);
 	QLabel *maxLabel = new QLabel();
 	maxLabel->setText(QString::number(maxTemp));
+	layout->addWidget(maxLabel,10,10,Qt::AlignCenter);
 	//end maybe
 	
 }
