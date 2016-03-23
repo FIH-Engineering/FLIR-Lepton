@@ -2,6 +2,7 @@
 
 #include <QLabel>
 #include <QPushButton>
+
 #include <QGridLayout>
 #include <QImage>
 #include <QPixmap>
@@ -32,29 +33,20 @@ MainWindow::MainWindow(QWidget *parent)
     imageLabel->setPixmap(filler);
 
     thread = new LeptonThread();
+	
+	//maybe
+	QLabel *label = new QLabel(this);
+	label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	label->setText("first line\nsecond line");
+	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+	//end maybe
+	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 
-	//MAYBE
-	/*QWidget *maxWidget = new QWidget();
-    setCentralWidget(maxWidget);
-	
-    maxlayout = new QGridLayout();
-    maxWidget->setLayout(maxlayout);
-
-    maxLabel = new QLabel();
-    maxlayout->addWidget(maxLabel, 1, 10, Qt::AlignCenter);
-
-    maxthread = new LeptonThread();
-    connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
-	
-	QPushButton *maxButton = new QPushButton(maxTemp);
-    maxlayout->addWidget(maxButton, 1, 0, Qt::AlignCenter);
-	//END OF MAYBE*/
-	
     thread->start();
 }
 
