@@ -9,6 +9,7 @@
 #include <QFile>
 
 #include "LeptonThread.h"
+int minTemp, maxTemp;
 
 int MainWindow::snapshotCount = 0;
 
