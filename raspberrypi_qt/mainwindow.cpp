@@ -34,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     thread = new LeptonThread();
 	//new
-	QLabel *label = new QLabel(this);
+	QLabel label = new QLabel();
 	label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	label->setText(QString::number(maxTemp));
 	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
@@ -74,19 +74,19 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
         }
     }
 
-	//maybe
 
-
-	label->setText(QString::number(maxTemp));
-
-	//end maybe
-	
 	
     // Update the on-screen image
     QPixmap pixmap = QPixmap::fromImage(rgbImage).scaled(ImageWidth, ImageHeight, Qt::KeepAspectRatio);
     QPainter painter(&pixmap);
     // ... mark up pixmap, if so desired
-    imageLabel->setPixmap(pixmap);
+    imageLabel->setPixmap(pixmap);	
+	
+	
+	//maybe
+	label->setText(QString::number(maxTemp));
+	//end maybe
+	
 }
 
 void MainWindow::saveSnapshot() {
