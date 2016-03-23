@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(label,10,10, Qt::AlignCenter);
 	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	layout->addWidget(label,10,10,Qt::AlignCenter);
-	label->setText("DEFAULT");
+	label->setText("\t \t \n \n \t \t DEFAULT");
 	//label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 	//
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
@@ -86,7 +86,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	
 	//maybe
 	QString labelvalue = QString::number(maxTemp);
-	label->setText(labelvalue);
+	layout.label->setText(labelvalue);
 	//end maybe
 	
 }
