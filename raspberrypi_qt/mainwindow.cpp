@@ -39,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(label,10,10, Qt::AlignCenter);
 	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	layout->addWidget(label,10,10,Qt::AlignCenter);
-	label->setText("\t \t \n \n \t \t DEFAULT");
+	//label->setText("\t \t \n \n \t DEFAULT");
 	//label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 	//
 	
@@ -90,7 +90,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//maybe
 	QString labelvalue = QString::number(maxTemp);
 	QLabel *maxLabel = new QLabel();
-	maxLabel->setText(labelvalue);
+	maxLabel->setText(QString::number(maxTemp));
 	//end maybe
 	
 }
