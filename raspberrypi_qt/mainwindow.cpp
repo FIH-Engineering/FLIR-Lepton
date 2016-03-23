@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 	//
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
-	connect(label,SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *,int,int)));
+	connect(label, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *,int,int)));
 	
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
@@ -87,7 +87,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	
 	//maybe
 	QString labelvalue = QString::number(maxTemp);
-	label->setText(layout, labelvalue);
+	label->setText(mainWidget, labelvalue);
 	//end maybe
 	
 }
