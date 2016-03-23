@@ -37,8 +37,12 @@ MainWindow::MainWindow(QWidget *parent)
 	//maybe
 	QLabel *label = new QLabel(this);
 	label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	label->setText("\n", maxTemp);
+	label->setText("first line\nsecond line");
 	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+	
+	QLineEdit* phoneEdit = new QLineEdit(this);
+	QLabel* phoneLabel = new QLabel("&Phone:", this);
+	phoneLabel->setBuddy(phoneEdit);
 	//end maybe
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
