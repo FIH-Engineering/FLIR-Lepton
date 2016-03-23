@@ -11,7 +11,6 @@
 
 #include "LeptonThread.h"
 int minTemp, maxTemp;
-QLabel *label;
 
 int MainWindow::snapshotCount = 0;
 
@@ -35,7 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     thread = new LeptonThread();
 	//new
-	*label = new QLabel();
+	QLabel *label = new QLabel();
 	layout->addWidget(label,10,10, Qt::AlignCenter);
 	//label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	layout->addWidget(label,10,10,Qt::AlignCenter);
@@ -76,7 +75,6 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
             rgbImage.setPixel(x, y, qRgb(colormap[3*scaledValue], colormap[3*scaledValue+1], colormap[3*scaledValue+2]));
         }
     }
-
 
 	
     // Update the on-screen image
