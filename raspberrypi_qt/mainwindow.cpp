@@ -39,6 +39,11 @@ MainWindow::MainWindow(QWidget *parent)
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
+	
+	QLabel *label = new QLabel(this);
+	label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	label->setText(QString::number(maxTemp));
+	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 
     thread->start();
 }
