@@ -33,10 +33,12 @@ MainWindow::MainWindow(QWidget *parent)
     imageLabel->setPixmap(filler);
 
     thread = new LeptonThread();
+	
 	//added
-	templabel = new QLabel(this);
-	//layout->addWidget(templabel, 3, 0, Qt::AlignCenter );
-	templabel->setText(QString::number(maxTemp));	
+	maxlabel = new QLabel(this);
+	minlabel = new QLabel(this);
+	maxlabel->setText(QString::number(maxTemp));
+	minlabel->setText(QString::number(minTemp));
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
@@ -45,28 +47,12 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
-	//NEWISH
-	
-	//templabel->setText(QString::number(maxTemp));
-
-	//QPushButton *button = new QPushButton;
-	//button->setText( "Change text" );
-	//QObject::connect( maxTemp, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(QString::number(maxTemp)));
-
-	//QHBoxLayout *layout = new QHBoxLayout;
-	//layout->addWidget( button );
-
-	//QMainWindow *mainWindow = new QMainWindow;
-	//QWidget *centralWidget = new QWidget;
-	//centralWidget->setLayout( layout );
-	//mainWindow->setCentralWidget( centralWidget );
-	//mainWindow->show();*/
-	
-	//added below before//
-	//QLabel *label = new QLabel(this);
-	templabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	
-	templabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+	//new added
+	minlabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	minlabel->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+	minlabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	minlabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+	//done adding
 
     thread->start();
 }
@@ -105,7 +91,8 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     imageLabel->setPixmap(pixmap);	
 	
 	//added
-	templabel->setText(QString::number(maxTemp));
+	maxlabel->setText(QString::number(maxTemp));
+	minlabel->setText(QString::number(minTemp));
 	
 }
 
