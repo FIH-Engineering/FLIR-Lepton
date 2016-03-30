@@ -101,7 +101,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     imageLabel->setPixmap(pixmap);	
 	
 	//added
-	//templabel->setText(QString::number(maxTemp));
+	templabel->setText(QString::number(maxTemp));
 	
 }
 
