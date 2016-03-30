@@ -37,7 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//added	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
-	savepicture = new QLabel (this);
+	savepicture = new QMessageBox (this);
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
@@ -95,6 +95,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 	savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
+	delay(10000000000);
 	
 }
 
