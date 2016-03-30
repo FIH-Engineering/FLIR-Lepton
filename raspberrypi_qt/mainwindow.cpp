@@ -51,7 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
-	layout->addWidget(savepicture, 1, 1, Qt:: AlignCenter);
+	layout->addWidget(savepicture, 2, 0, Qt:: AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
 
