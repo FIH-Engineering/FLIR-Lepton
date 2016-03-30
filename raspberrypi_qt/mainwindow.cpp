@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	
 	maxlabel->setText(QString("Max Temp: ") + (QString::number(maxTemp)));
-	minlabel->setText(QString("Min Temp: ") + (QString::number(minTemp)));
+	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
