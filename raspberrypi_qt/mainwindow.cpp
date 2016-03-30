@@ -33,6 +33,11 @@ MainWindow::MainWindow(QWidget *parent)
     imageLabel->setPixmap(filler);
 
     thread = new LeptonThread();
+	//added
+	templabel = new QLabel();
+	layout->addWidget(templabel, 3, 0, Qt::AlignCenter );
+	templabel->setText(QString::number(maxTemp));	
+	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	
@@ -41,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
 	//NEWISH
-	templabel = new QLabel();
+	
 	//templabel->setText(QString::number(maxTemp));
 
 	//QPushButton *button = new QPushButton;
@@ -50,7 +55,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 	//QHBoxLayout *layout = new QHBoxLayout;
 	//layout->addWidget( button );
-	layout->addWidget( templabel );
 
 	//QMainWindow *mainWindow = new QMainWindow;
 	//QWidget *centralWidget = new QWidget;
@@ -60,9 +64,9 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	//added below before//
 	//QLabel *label = new QLabel(this);
-	templabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	templabel->setText(QString::number(maxTemp));
-	templabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);//
+	/*templabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	
+	templabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);//*/
 
     thread->start();
 }
