@@ -39,8 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
 	
-	layout->addWidget(minlabel, 1, 0, Qt::AlignRight );
-	layout->addWidget(maxlabel, 1, 2, Qt::AlignRight);
+	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
+	layout->addWidget(maxlabel, 1, 2, Qt::AlignLeft);
 	
 	maxlabel->setText(QString::number(maxTemp));
 	minlabel->setText(QString::number(minTemp));
@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	
     QPushButton *snapshotButton = new QPushButton("Snapshot");
-    layout->addWidget(snapshotButton, 1, 1, Qt::AlignRight);
+    layout->addWidget(snapshotButton, 1, 1, Qt::AlignLeft);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
 	//new added
