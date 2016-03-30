@@ -56,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
 	layout->addWidget(savepicture, 2, 0, Qt:: AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
+	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 	
 
     thread->start();
@@ -100,7 +101,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 	savepicture->exec();
 	
-    connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+    
     timer->start(1000);
 	savepicture->close();
 }
