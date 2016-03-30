@@ -2,6 +2,7 @@
 
 #include <QLabel>
 #include <QPushButton>
+#include <QTimer>
 
 #include <QMessageBox>
 
