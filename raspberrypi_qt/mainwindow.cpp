@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
 	
-	maxlabel->setText(QString("Max Temp: ") + (QString::number(maxTemp)));
+	maxlabel->setText(QString("Max Temp: ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 	// done adding
 	
@@ -90,8 +90,8 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     imageLabel->setPixmap(pixmap);	
 	
 	//added
-	maxlabel->setText(QString::number(maxTemp));
-	minlabel->setText(QString::number(minTemp));
+	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
+	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 	
 }
 
