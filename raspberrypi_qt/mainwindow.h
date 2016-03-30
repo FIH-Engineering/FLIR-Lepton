@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QImage>
+#include <QTimer>
 
 class QLabel;
 class QMessageBox;
