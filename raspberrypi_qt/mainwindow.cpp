@@ -35,10 +35,13 @@ MainWindow::MainWindow(QWidget *parent)
     thread = new LeptonThread();
 	
 	//added	
-	layout->addWidget(minlabel, 2, 1);
-	layout->addWidget(maxlabel, 3, 5);
+	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
+	
+	layout->addWidget(minlabel, 2, 1);
+	layout->addWidget(maxlabel, 3, 5);
+	
 	maxlabel->setText(QString::number(maxTemp));
 	minlabel->setText(QString::number(minTemp));
 	// done adding
