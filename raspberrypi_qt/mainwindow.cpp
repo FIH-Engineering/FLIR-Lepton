@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
 	QMessageBox *savepicture = new QMessageBox;
-	QTimer *timer = new QTimer(this);
+	timer = new QTimer(this);
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
