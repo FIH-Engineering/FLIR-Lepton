@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//added	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
+	savepicture = new QLabel (this);
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
@@ -50,6 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
+	layout->addWidget(savepicture, 1, 1, Qt:: AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
 
@@ -92,6 +94,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//added
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
+	savepicture->setText(QString("Photo Saved as:"));
 	
 }
 
@@ -108,6 +111,9 @@ void MainWindow::saveSnapshot() {
 
     // JPG image, top quality
     rgbImage.save(QString("rgb%1.jpg").arg(snapshotCount), "JPG", 100);
+	
+	//added
+	savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 	
 	
 }
