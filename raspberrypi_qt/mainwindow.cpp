@@ -96,7 +96,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 	savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 	savepicture->exec();
-	delay(10000000000);
+	QTimer::singleShot( 30*1000, &a, SLOT(quit()) );
 	savepicture->close();
 }
 
