@@ -94,7 +94,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//added
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
-	savepicture->setText(QString("Photo Saved as:"));
+	savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 	
 }
 
