@@ -11,7 +11,8 @@ while True:
     if red_state == False:
         print('RED')
         time.sleep(0.2)
-	blue_state = GPIO.input(17)
-    if blue_state == False:
-        print('BLUE')
-        time.sleep(0.2)
+	else:
+		blue_state = GPIO.input(17)
+		if blue_state == False:
+			print('BLUE')
+			time.sleep(0.2)
