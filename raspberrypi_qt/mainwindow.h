@@ -5,6 +5,7 @@
 #include <QImage>
 
 class QLabel;
+class QMessageBox;
 class LeptonThread;
 class QGridLayout;
 
