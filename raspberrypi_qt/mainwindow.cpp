@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//button->setText( "Change text" );
 	QObject::connect( maxTemp, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(QString::number(maxTemp)));
 
-	//QHBoxLayout *layout = new QHBoxLayout;
+	/*//QHBoxLayout *layout = new QHBoxLayout;
 	//layout->addWidget( button );
 	layout->addWidget( templabel );
 
@@ -56,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//QWidget *centralWidget = new QWidget;
 	//centralWidget->setLayout( layout );
 	//mainWindow->setCentralWidget( centralWidget );
-	//mainWindow->show();
+	//mainWindow->show();*/
 	
 	//added below before//
 	QLabel *label = new QLabel(this);
@@ -101,7 +101,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     imageLabel->setPixmap(pixmap);	
 	
 	//added
-	templabel->setText(QString::number(maxTemp));
+	//templabel->setText(QString::number(maxTemp));
 	
 }
 
