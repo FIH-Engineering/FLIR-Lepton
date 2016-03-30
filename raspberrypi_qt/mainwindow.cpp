@@ -41,8 +41,8 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
-	maxlabel->setText("Max Temp: " & QString::number(maxTemp));
-	minlabel->setText("Min Temp: " & QString::number(minTemp));
+	maxlabel->setText("Max Temp: " + QString::number(maxTemp));
+	minlabel->setText("Min Temp: " + QString::number(minTemp));
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
