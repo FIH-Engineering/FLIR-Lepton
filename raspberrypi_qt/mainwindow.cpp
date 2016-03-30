@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//added
 	templabel = new QLabel(this);
 	//layout->addWidget(templabel, 3, 0, Qt::AlignCenter );
-	templabel->setText("MAXTEMP"/*QString::number(maxTemp)*/ );	
+	templabel->setText(QString::number(maxTemp));	
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
