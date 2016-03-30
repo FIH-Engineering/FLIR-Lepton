@@ -44,9 +44,9 @@ MainWindow::MainWindow(QWidget *parent)
 	QLabel *templabel = new QLabel;
 	templabel->setText(QString::number(maxTemp));
 
-	/*QPushButton *button = new QPushButton;
-	button->setText( "Change text" );
-	QObject::connect( button, SIGNAL( clicked() ), label, SLOT( setText( "Boo!" ) ) );*/
+	//QPushButton *button = new QPushButton;
+	//button->setText( "Change text" );
+	QObject::connect( maxTemp, SIGNAL(updateImage(unsigned short *,int,int)), templabel, SLOT(QString::number(maxTemp)));
 
 	//QHBoxLayout *layout = new QHBoxLayout;
 	//layout->addWidget( button );
