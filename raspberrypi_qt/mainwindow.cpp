@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
 	//NEWISH
-	QLabel *templabel = new QLabel;
+	templabel = new QLabel();
 	templabel->setText(QString::number(maxTemp));
 
 	//QPushButton *button = new QPushButton;

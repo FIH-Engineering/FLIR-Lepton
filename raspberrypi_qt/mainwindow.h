@@ -20,7 +20,6 @@ class MainWindow : public QMainWindow {
     QGridLayout *layout;
 
     unsigned short rawMin, rawMax;
-	int maxTemp, minTemp;
     QVector<unsigned short> rawData;
     QImage rgbImage;
 
