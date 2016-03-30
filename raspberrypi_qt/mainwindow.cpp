@@ -40,10 +40,29 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
+	//NEWISH
+	QLabel *templabel = new QLabel;
+	templabel->setText(QString::number(maxTemp));
+
+	/*QPushButton *button = new QPushButton;
+	button->setText( "Change text" );
+	QObject::connect( button, SIGNAL( clicked() ), label, SLOT( setText( "Boo!" ) ) );*/
+
+	//QHBoxLayout *layout = new QHBoxLayout;
+	//layout->addWidget( button );
+	layout->addWidget( templabel );
+
+	//QMainWindow *mainWindow = new QMainWindow;
+	//QWidget *centralWidget = new QWidget;
+	//centralWidget->setLayout( layout );
+	//mainWindow->setCentralWidget( centralWidget );
+	//mainWindow->show();
+	
+	//added below before//
 	QLabel *label = new QLabel(this);
 	label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	label->setText(QString::number(maxTemp));
-	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);
+	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);//
 
     thread->start();
 }
@@ -80,6 +99,9 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     QPainter painter(&pixmap);
     // ... mark up pixmap, if so desired
     imageLabel->setPixmap(pixmap);	
+	
+	//added
+	templabel->setText(QString::number(maxTemp));
 	
 }
 
