@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent)
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
 	QMessageBox *savepicture = new QMessageBox;
-	timer = new QTimer(this);
+	//timer = new QTimer(this);
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
@@ -57,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
 	layout->addWidget(savepicture, 2, 0, Qt:: AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
-	connect(timer, SIGNAL(timeout()), this, SLOT(update()));
+	//connect(timer, SIGNAL(timeout()), this, SLOT(update()));
 	
 
     thread->start();
@@ -103,7 +103,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	savepicture->exec();
 	
     
-    timer->start(1000);
+    //timer->start(1000);
 	savepicture->close();
 }
 
