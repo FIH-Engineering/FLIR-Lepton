@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	//NEWISH
 	templabel = new QLabel();
-	templabel->setText(QString::number(maxTemp));
+	//templabel->setText(QString::number(maxTemp));
 
 	//QPushButton *button = new QPushButton;
 	//button->setText( "Change text" );
@@ -59,10 +59,10 @@ MainWindow::MainWindow(QWidget *parent)
 	//mainWindow->show();*/
 	
 	//added below before//
-	QLabel *label = new QLabel(this);
-	label->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	label->setText(QString::number(maxTemp));
-	label->setAlignment(Qt::AlignBottom | Qt::AlignRight);//
+	//QLabel *label = new QLabel(this);
+	templabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	templabel->setText(QString::number(maxTemp));
+	templabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);//
 
     thread->start();
 }
