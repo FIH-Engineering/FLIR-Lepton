@@ -35,15 +35,14 @@ MainWindow::MainWindow(QWidget *parent)
     thread = new LeptonThread();
 	
 	//added	
-	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
-	maxlabel->setText(QString::number(maxTemp));
-	minlabel->setText(QString::number(minTemp));
+	maxlabel->setText("Max Temp: " QString::number(maxTemp));
+	minlabel->setText("Min Temp: " QString::number(minTemp));
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
@@ -52,13 +51,6 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
-	//new added
-
-	/*minlabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	minlabel->setAlignment(Qt::AlignTop | Qt::AlignLeft);
-	minlabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
-	minlabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);*/
-	//done adding
 
     thread->start();
 }
