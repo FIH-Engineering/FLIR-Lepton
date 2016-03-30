@@ -3,6 +3,8 @@
 #include <QLabel>
 #include <QPushButton>
 
+#include <QMessageBox>
+
 #include <QGridLayout>
 #include <QImage>
 #include <QPixmap>
