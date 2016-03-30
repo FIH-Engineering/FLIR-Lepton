@@ -34,8 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     thread = new LeptonThread();
 	//added
-	templabel = new QLabel();
-	layout->addWidget(templabel, 3, 0, Qt::AlignCenter );
+	templabel = new QLabel(this);
+	//layout->addWidget(templabel, 3, 0, Qt::AlignCenter );
 	templabel->setText("MAXTEMP"/*QString::number(maxTemp)*/ );	
 	// done adding
 	
@@ -64,9 +64,9 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	//added below before//
 	//QLabel *label = new QLabel(this);
-	/*templabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+	templabel->setFrameStyle(QFrame::Panel | QFrame::Sunken);
 	
-	templabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);//*/
+	templabel->setAlignment(Qt::AlignBottom | Qt::AlignRight);
 
     thread->start();
 }
