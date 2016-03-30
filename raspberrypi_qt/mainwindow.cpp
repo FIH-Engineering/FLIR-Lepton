@@ -39,8 +39,8 @@ MainWindow::MainWindow(QWidget *parent)
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
 	
-	layout->addWidget(minlabel, 2, 1);
-	layout->addWidget(maxlabel, 3, 5);
+	layout->addWidget(minlabel, 1, 0);
+	layout->addWidget(maxlabel, 1, 5);
 	
 	maxlabel->setText(QString::number(maxTemp));
 	minlabel->setText(QString::number(minTemp));
