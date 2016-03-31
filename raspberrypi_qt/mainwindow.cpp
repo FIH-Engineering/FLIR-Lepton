@@ -132,6 +132,6 @@ msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount
 //msgBox.setDefaultButton(QMessageBox::Save);
 
 msgBox.setStandardButtons(QMessageBox::Ok); 
-msgBox.button(QMessageBox::Ok).animateClick(3000); 
+msgBox.button(QMessageBox::Ok)->animateClick(3000); 
 msgBox.exec();	
 }
