@@ -126,7 +126,7 @@ void MainWindow::saveSnapshot() {
 
 QMessageBox msgBox;
 msgBox.setText("Name");
-msgBox.setInformativeText("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
+msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 //msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard |
                           //QMessageBox::Cancel);
 //msgBox.setDefaultButton(QMessageBox::Save);
