@@ -5,7 +5,7 @@
 #include <QTimer>
 
 #include <QMessageBox>
-
+#include <QSpacerItem>
 #include <QGridLayout>
 #include <QImage>
 #include <QPixmap>
@@ -127,8 +127,8 @@ void MainWindow::saveSnapshot() {
 QMessageBox msgBox;
 QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
-QGridLayout* lay = (QGridLayout*)messageBox.lay();
-layout->addItem(horizontalSpacer, lay->rowCount(), 0, 1, lay->columnCount());
+QGridLayout* layout = (QGridLayout*)messageBox.layout();
+layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, lay->columnCount());
 msgBox.setStandardButtons(QMessageBox::Ok); 
 msgBox.button(QMessageBox::Ok)->animateClick(2000); 
 msgBox.exec();	
