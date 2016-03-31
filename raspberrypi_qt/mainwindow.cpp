@@ -125,8 +125,8 @@ void MainWindow::saveSnapshot() {
 	//savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 
 QMessageBox msgBox;
-msgBox.setTextFormat(Qt::TextFormat RichText);
 msgBox.setWindowTitle(QString("Image Information")); 
+msgBox.setTextFormat(Qt::TextFormat format); 
 QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 QGridLayout* layout = (QGridLayout*)msgBox.layout();
