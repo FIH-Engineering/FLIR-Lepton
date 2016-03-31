@@ -40,7 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
 	//added	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
-	QMessageBox *savepicture = new QMessageBox;
+	//QMessageBox *savepicture = new QMessageBox;
 	//timer = new QTimer(this);
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
@@ -99,12 +99,12 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//added
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
-	savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
-	savepicture->exec();
+	//savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
+	//savepicture->exec();
 	
     
     //timer->start(1000);
-	savepicture->close();
+	//savepicture->close();
 }
 
 void MainWindow::saveSnapshot() {
@@ -122,7 +122,14 @@ void MainWindow::saveSnapshot() {
     rgbImage.save(QString("rgb%1.jpg").arg(snapshotCount), "JPG", 100);
 	
 	//added
-	savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
-	
+	//savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
+
+QMessageBox msgBox;
+msgBox.setText("Name");
+msgBox.setInformativeText("Do you want to save your changes?");
+msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard |
+                          QMessageBox::Cancel);
+msgBox.setDefaultButton(QMessageBox::Save);
+msgBox.exec();
 	
 }
