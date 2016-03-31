@@ -19,7 +19,7 @@ class MainWindow : public QMainWindow {
 
     QLabel *imageLabel, *maxlabel, *minlabel;
 	//QTimer *timer;
-	QMessageBox *savepicture;
+	//QMessageBox *savepicture;
     LeptonThread *thread;
     QGridLayout *layout;
 
