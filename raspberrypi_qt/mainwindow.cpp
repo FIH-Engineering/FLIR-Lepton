@@ -125,13 +125,11 @@ void MainWindow::saveSnapshot() {
 	//savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 
 QMessageBox msgBox;
-msgBox.setText("                                ");
+QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
-//msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard |
-                          //QMessageBox::Cancel);
-//msgBox.setDefaultButton(QMessageBox::Save);
-
-//msgBox.setStandardButtons(QMessageBox::Ok); 
+QGridLayout* lay = (QGridLayout*)messageBox.lay();
+layout->addItem(horizontalSpacer, lay->rowCount(), 0, 1, lay->columnCount());
+msgBox.setStandardButtons(QMessageBox::Ok); 
 msgBox.button(QMessageBox::Ok)->animateClick(2000); 
 msgBox.exec();	
 }
