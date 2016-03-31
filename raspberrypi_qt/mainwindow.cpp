@@ -127,8 +127,8 @@ void MainWindow::saveSnapshot() {
 QMessageBox msgBox;
 QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
-QGridLayout* layout = (QGridLayout*)messageBox.layout();
-layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, lay->columnCount());
+QGridLayout* layout = (QGridLayout*)msgBox.layout();
+layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, layout->columnCount());
 msgBox.setStandardButtons(QMessageBox::Ok); 
 msgBox.button(QMessageBox::Ok)->animateClick(2000); 
 msgBox.exec();	
