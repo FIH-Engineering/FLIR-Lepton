@@ -123,7 +123,7 @@ void MainWindow::saveSnapshot() {
 	QFile logFile(QString("LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QTextStream logOut(&logFile);
-	logOut<<"Min Output Temperature:"<<minOutput<<"Max Output Temperature: "<<maxOutput;
+	logOut<<"Picture Name: "<<QString("raw%1").arg(snapshotCount)<<"Min Output Temperature:"<<minOutput<<"Max Output Temperature: "<<maxOutput<<" \n";
 	logFile.close();
 
     // JPG image, top quality
