@@ -99,6 +99,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 }
 
 void MainWindow::saveSnapshot() {
+	int minOutput, maxOutput;
     ++snapshotCount;
 
     // Raw file format: binary, one word for min value, one for max value, then 80*60 words of raw data
@@ -109,18 +110,24 @@ void MainWindow::saveSnapshot() {
     rawOut.writeRawData((char *) &rawData[0], 2*rawData.size());
     rawFile.close();
 	
+	//calculate output for max and min temp using raw values
+		//Calculate max and min temp
+	maxOutput = (rawMax - 7063.78)/15.98;
+	minOutput = (rawMin - 7063.78)/15.98;
+	qDebug()<<"Max Temp FINAL"<<maxOutput;
+	qDebug()<<"Min Temp FINAL"<<minOutput;
+	//Done Adding
+	
 	//ADDING BELOW - ATTEMPTING METADATA SAVE
 	QFile logFile(QString("LogFile.odt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QDataStream logOut(&logFile);
-	logOut<<minTemp<<maxTemp;
+	logOut<<minOutput<<maxOutput;
 	logFile.close();
 
     // JPG image, top quality
     rgbImage.save(QString("rgb%1.jpg").arg(snapshotCount), "JPG", 100);
 	
-	//added
-	//savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 
 	// display feedback messagebox information
 	QMessageBox msgBox;
