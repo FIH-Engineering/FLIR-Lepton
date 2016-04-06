@@ -18,8 +18,6 @@ class MainWindow : public QMainWindow {
     static int snapshotCount;
 
     QLabel *imageLabel, *maxlabel, *minlabel;
-	//QTimer *timer;
-	//QMessageBox *savepicture;
     LeptonThread *thread;
     QGridLayout *layout;
 

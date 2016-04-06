@@ -25,7 +25,6 @@ MainWindow::MainWindow(QWidget *parent)
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
 	
-
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
 
@@ -40,12 +39,9 @@ MainWindow::MainWindow(QWidget *parent)
 	//added	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
-	//QMessageBox *savepicture = new QMessageBox;
-	//timer = new QTimer(this);
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
-	
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
@@ -55,10 +51,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
-	//layout->addWidget(savepicture, 2, 0, Qt:: AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
-	//connect(timer, SIGNAL(timeout()), this, SLOT(update()));
-	
 
     thread->start();
 }
@@ -99,12 +92,10 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//added
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
-	//savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
-	//savepicture->exec();
+
 	
     
-    //timer->start(1000);
-	//savepicture->close();
+
 }
 
 void MainWindow::saveSnapshot() {
@@ -117,6 +108,13 @@ void MainWindow::saveSnapshot() {
     rawOut << rawMin << rawMax;
     rawOut.writeRawData((char *) &rawData[0], 2*rawData.size());
     rawFile.close();
+	
+	//ADDING BELOW - ATTEMPTING METADATA SAVE
+	QFile logFile(QString("LogFile.odt"));
+	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
+	QDataStream logOut(&logFile);
+	logOut<<minTemp<<maxTemp;
+	logFile.close();
 
     // JPG image, top quality
     rgbImage.save(QString("rgb%1.jpg").arg(snapshotCount), "JPG", 100);
@@ -124,15 +122,16 @@ void MainWindow::saveSnapshot() {
 	//added
 	//savepicture->setText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 
-QMessageBox msgBox;
-msgBox.setWindowTitle(QString("Image Information")); 
-//.setTextFormat(RichText); 
-QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
-QGridLayout* layout = (QGridLayout*)msgBox.layout();
-layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, layout->columnCount());
-msgBox.setStandardButtons(QMessageBox::Ok);
-msgBox.button(QMessageBox::Ok)->setVisible(false); 
-msgBox.button(QMessageBox::Ok)->animateClick(2000); 
-msgBox.exec();	
+	// display feedback messagebox information
+	QMessageBox msgBox;
+	msgBox.setWindowTitle(QString("Image Information")); 
+	//.setTextFormat(RichText); 
+	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
+	msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
+	QGridLayout* layout = (QGridLayout*)msgBox.layout();
+	layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, layout->columnCount());
+	msgBox.setStandardButtons(QMessageBox::Ok);
+	msgBox.button(QMessageBox::Ok)->setVisible(false); 
+	msgBox.button(QMessageBox::Ok)->animateClick(2000); 
+	msgBox.exec();	
 }
