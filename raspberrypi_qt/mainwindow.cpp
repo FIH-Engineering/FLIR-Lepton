@@ -119,10 +119,10 @@ void MainWindow::saveSnapshot() {
 	//Done Adding
 	
 	//ADDING BELOW - ATTEMPTING METADATA SAVE
-	QFile logFile(QString("LogFile.odt"));
+	QFile logFile(QString("LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QDataStream logOut(&logFile);
-	logOut<<rawMin<<rawMax;
+	logOut<<minOutput<<maxOutput;
 	logFile.close();
 
     // JPG image, top quality
