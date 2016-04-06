@@ -11,6 +11,7 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QFile>
+#include <QDataStream>
 
 #include "LeptonThread.h"
 int minTemp, maxTemp;
@@ -121,8 +122,8 @@ void MainWindow::saveSnapshot() {
 	//ADDING BELOW - ATTEMPTING METADATA SAVE
 	QFile logFile(QString("LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
-	QDataStream logOut(&logFile);
-	logFile<<QString("max %1").arg(maxOutput)<<QString("min ").arg(minOutput);
+	QTextStream logOut(&logFile);
+	logOut<<QString("max %1").arg(maxOutput)<<QString("min ").arg(minOutput);
 	logFile.close();
 
     // JPG image, top quality
