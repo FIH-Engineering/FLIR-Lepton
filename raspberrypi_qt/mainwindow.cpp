@@ -14,16 +14,6 @@
 #include <QDataStream>
 
 #include "LeptonThread.h"
-
-//button directories
-#include <iostream>
-#include <unistd.h>
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include "GPIOClass.h"
-
-using namespace std;
 int minTemp, maxTemp;
 
 int MainWindow::snapshotCount = 0;
@@ -59,30 +49,12 @@ MainWindow::MainWindow(QWidget *parent)
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
-	
-	//ADDING BELOW - ATTEMPTING PUSHBUTTON FOR SNAPSHOT
-	string inputstate;
-    GPIOClass* gpio17 = new GPIOClass("17"); //create new GPIO object to be attached to  GPIO4
-    gpio17->export_gpio(); //export GPIO17
-    gpio17->setdir_gpio("in"); //GPIO4 set to output
-	
-    //usleep(500000);  // wait for 0.5 seconds
-    gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
-    qDebug() << "Current input pin state is " << inputstate  <<endl;
 		
-    if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
-    {
-		saveSnapshot();
-		
-		//moved from last line in this function
-		thread->start();
-	}
-			
 	//GUI Button Below - gonna try to replace with code above
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
-
+	thread->start();
     
 }
 
