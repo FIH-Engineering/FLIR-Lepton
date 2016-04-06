@@ -64,12 +64,7 @@ MainWindow::MainWindow(QWidget *parent)
 	string inputstate;
     GPIOClass* gpio17 = new GPIOClass("17"); //create new GPIO object to be attached to  GPIO4
     gpio17->export_gpio(); //export GPIO17
-
-    qDebug() << " GPIO pins exported" << endl;
-
     gpio17->setdir_gpio("in"); //GPIO4 set to output
-    qDebug() << " Set GPIO pin directions" << endl;
-
 	
     //usleep(500000);  // wait for 0.5 seconds
     gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
@@ -77,7 +72,6 @@ MainWindow::MainWindow(QWidget *parent)
 		
     if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
     {
-        qDebug () << "input pin state is "Pressed ".n Will check input pin state again in 20ms "<<endl;
 		saveSnapshot();
 		
 		//moved from last line in this function
