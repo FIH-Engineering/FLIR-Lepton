@@ -123,7 +123,7 @@ void MainWindow::saveSnapshot() {
 	QFile logFile(QString("LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QTextStream logOut(&logFile);
-	logOut<<QString("max %1").arg(maxOutput)<<QString("min ").arg(minOutput);
+	logOut<< "test ";
 	logFile.close();
 
     // JPG image, top quality
