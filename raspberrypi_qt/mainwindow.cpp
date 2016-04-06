@@ -122,7 +122,7 @@ void MainWindow::saveSnapshot() {
 	QFile logFile(QString("LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QDataStream logOut(&logFile);
-	logOut<<QString("max %1").arg(maxOutput)<<QString("min ").arg(minOutput);
+	logFile<<QString("max %1").arg(maxOutput)<<QString("min ").arg(minOutput);
 	logFile.close();
 
     // JPG image, top quality
