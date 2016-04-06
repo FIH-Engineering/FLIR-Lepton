@@ -11,7 +11,7 @@ int main()
 	{
 		cout << "cout example2" << endl;
 		printf("printf example2 \n");
-		usleep(1000000)
+		usleep(1000000);
 	}
 
 	return 0;
