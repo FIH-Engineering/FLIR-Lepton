@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stdio.h>
+#include<unistd.h>
 //#include<python.h>
 
 using namespace std;
@@ -10,6 +11,7 @@ int main()
 	{
 		cout << "cout example" << endl;
 		printf("printf example \n");
+		usleep(1000000)
 	}
 	
 	return 0;
