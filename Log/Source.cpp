@@ -6,8 +6,11 @@ using namespace std;
 
 int main()
 {
-	cout << "cout example" << endl;
-	printf("printf example \n");
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "cout example" << endl;
+		printf("printf example \n");
+	}
 	
 	return 0;
 }
