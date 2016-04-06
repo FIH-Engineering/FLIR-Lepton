@@ -6,8 +6,12 @@ using namespace std;
 
 int main()
 {
-	cout << "cout example2" << endl;
-	printf("printf example2 \n");
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "cout example2" << endl;
+		printf("printf example2 \n");
+	}
+
 	
 	return 0;
 }
