@@ -55,7 +55,7 @@ if __name__ == '__main__':
         print(time, sep = "*", end="\n",file=gpsdLog)
         button = True
         time.sleep(3) #delay
-      elif:
+      elif button == True:
         print("variables are resetting")
         time.sleep(3) 
  
