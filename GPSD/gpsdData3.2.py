@@ -56,10 +56,10 @@ if __name__ == '__main__':
         print("button was pressed")
 		gpsdLog.close()
         button = True
-        time.sleep(3) #delay
+        time.sleep(.2) #delay
       elif button == True:
         print("variables are resetting")
-        time.sleep(3) 
+       # time.sleep(2) 
  
   except (KeyboardInterrupt, SystemExit): #when you press ctrl+c
     print("\nKilling Thread...")
