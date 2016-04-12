@@ -53,6 +53,7 @@ if __name__ == '__main__':
         print(latitude, sep = "*", end="\n",file=gpsdLog)
         print(longitude, sep = "*", end="\n",file=gpsdLog)
         print(time1, sep = "*", end="\n",file=gpsdLog)
+		print("button was pressed")
         button = True
         time.sleep(3) #delay
       elif button == True:
