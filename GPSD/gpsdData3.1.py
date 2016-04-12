@@ -42,7 +42,7 @@ if __name__ == '__main__':
 	  
       latitude = gpsd.fix.latitude
       longitude = gpsd.fix.longitude
-      time = gpsd.utc,' + ', gpsd.fix.time
+      time1 = gpsd.utc,' + ', gpsd.fix.time
 	  
       #GPIO read
       button = GPIO.input(17)
@@ -52,7 +52,7 @@ if __name__ == '__main__':
         gpsdLog = open("GPSLOG.txt", "a")
         print(latitude, sep = "*", end="\n",file=gpsdLog)
         print(longitude, sep = "*", end="\n",file=gpsdLog)
-        print(time, sep = "*", end="\n",file=gpsdLog)
+        print(time1, sep = "*", end="\n",file=gpsdLog)
         button = True
         time.sleep(3) #delay
       elif button == True:
