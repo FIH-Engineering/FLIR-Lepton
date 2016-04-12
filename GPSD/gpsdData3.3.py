@@ -56,9 +56,8 @@ if __name__ == '__main__':
         gpsdLog.close()
         button = True
         time.sleep(.2) #delay
-      #elif button == True:
-        #print(" ")
-        #time.sleep(.2) 
+      elif button == True:
+        time.sleep(.2) 
  
   except (KeyboardInterrupt, SystemExit): #when you press ctrl+c
     print("\nKilling Thread...")
