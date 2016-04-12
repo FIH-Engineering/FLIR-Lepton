@@ -59,7 +59,7 @@ if __name__ == '__main__':
         time.sleep(.2) #delay
       elif button == True:
         print("variables are resetting")
-       # time.sleep(2) 
+        time.sleep(2) 
  
   except (KeyboardInterrupt, SystemExit): #when you press ctrl+c
     print("\nKilling Thread...")
