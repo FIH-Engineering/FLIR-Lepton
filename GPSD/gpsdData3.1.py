@@ -6,7 +6,7 @@
 from __future__ import print_function 
 import os
 from gps import *
-from time import *
+#from time import *
 import time
 import threading
 import RPi.GPIO as GPIO
