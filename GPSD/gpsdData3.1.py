@@ -14,7 +14,9 @@ import RPi.GPIO as GPIO
 gpsd = None #seting the global variable
  
 os.system('clear') #clear the terminal (optional)
- 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
 class GpsPoller(threading.Thread):
   def __init__(self):
     threading.Thread.__init__(self)
@@ -43,8 +45,7 @@ if __name__ == '__main__':
       time = gpsd.utc,' + ', gpsd.fix.time
 	  
       #GPIO read
-      GPIO.setup(11, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-      button = GPIO.input(11)
+      button = GPIO.input(17)
 	  
       #if button is pressed than write to file
       if button == False:
