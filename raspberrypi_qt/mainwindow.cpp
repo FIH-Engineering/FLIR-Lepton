@@ -80,8 +80,8 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	if (rpiGpio.readPin(17) == mmapGpio::LOW){
 	qDebug()<<"pressed";
-	snapshotButton->clicked(true);
-	connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
+	//snapshotButton->clicked();
+	//connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	}
 
 	//else if(rpiGpio.readPin(17) == mmapGpio::HIGH){
