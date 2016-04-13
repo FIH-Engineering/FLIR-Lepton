@@ -14,6 +14,10 @@
 #include <QDataStream>
 
 #include "LeptonThread.h"
+
+//button files?
+#include "mmapGpio.h"
+#include "stdio.h"
 int minTemp, maxTemp;
 
 int MainWindow::snapshotCount = 0;
@@ -49,6 +53,22 @@ MainWindow::MainWindow(QWidget *parent)
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
+		
+	//ADDING BELOW - ATTEMPTING BUTTON STUFF
+	unsigned int val = 10;
+    mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
+    rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
+    while(val > 0) {
+        usleep(500000); //delay for 0.5 seconds
+        if(rpiGpio.readPin(17) == mmapGpio::HIGH) // read pin state (no debounce to make code more readable)
+            printf("Button not pressed\n"); // if GPIO17 is HIGH button not pressed (due to pull-up resistor)
+        else{
+            printf("Button is pressed....toggling LED\n"); //else if GPIO17 is low button is pressed
+            }
+            printf("Button not pressed anymore....toggling LED stopped\n");
+        }
+        val--;
+    }
 		
 	//GUI Button Below - gonna try to replace with code above
     QPushButton *snapshotButton = new QPushButton("Snapshot");
