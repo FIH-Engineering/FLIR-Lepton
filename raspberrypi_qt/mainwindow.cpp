@@ -72,13 +72,13 @@ MainWindow::MainWindow(QWidget *parent)
 		
 	//GUI Button Below - gonna try to replace with code above
     QPushButton *snapshotButton = new QPushButton("Snapshot");
-    //layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
+    layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     
 	
 	//mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
     //rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
 	
-	while (1)
+	/*while (1)
 	{
 	
 	//rpiGpio.writePinState(17, mmapGpio::LOW)
@@ -95,7 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 		
 	
-	}
+	}*/
 
 
 	
