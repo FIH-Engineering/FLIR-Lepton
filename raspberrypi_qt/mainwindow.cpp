@@ -86,10 +86,6 @@ MainWindow::MainWindow(QWidget *parent)
 			saveSnapshot();
 			//connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 		}
-	else
-		qDebug()<<"not pressed";
-	
-	//not corrupting
 	
 	}
 
