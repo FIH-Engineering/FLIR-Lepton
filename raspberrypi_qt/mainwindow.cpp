@@ -77,7 +77,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
     rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to output
-	if(rpiGpio.readPinHigh(17))
+	if(rpiGpio.readPin(17) = 1)
         saveSnapshot();
 	
 	thread->start();
