@@ -78,10 +78,12 @@ MainWindow::MainWindow(QWidget *parent)
 	mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
     rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
 	
+	while (1){
 	if (rpiGpio.readPin(17) == mmapGpio::LOW){
 	qDebug()<<"pressed";
 	//snapshotButton->clicked();
 	//connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
+	}
 	}
 
 	//else if(rpiGpio.readPin(17) == mmapGpio::HIGH){
