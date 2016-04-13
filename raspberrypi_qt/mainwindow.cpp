@@ -55,7 +55,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 		
 	//ADDING BELOW - ATTEMPTING BUTTON STUFF
-	unsigned int val = 10;
+	/*unsigned int val = 10;
     mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
     rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
     while(val > 0) {
@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
             printf("Button not pressed anymore....toggling LED stopped\n");
         }
         val--;
-    }
+    }*/
 		
 	//GUI Button Below - gonna try to replace with code above
     //QPushButton *snapshotButton = new QPushButton("Snapshot");
@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
     //connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
 	mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
-    rpiGpio.setPinDir(17,mmapGpio::OUTPUT); // set GPIO17 to output
+    rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to output
 	if(rpiGpio.readPinHigh(17))
         saveSnapshot();
 	
