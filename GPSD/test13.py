@@ -42,10 +42,10 @@ if __name__ == '__main__':
 	  
 	  
       with open("index.txt", "rb") as f:
-        first = f.readline() 			# Read the first line
-	    f.seek(-2,2) 					# Jump to the second last byte
-        while f.read(1) != b"\n":		# Until EOL is found..
-	      f.seek(-2,1)				#jump back the read byte plus one more
+        first = f.readline() 		# Read the first line
+        f.seek(-2,2) 				# Jump to the second last byte
+        while f.read(1) != b"\n":	# Until EOL is found..
+	      f.seek(-2,1)				#jump back read byte plus 1
 		index = 0
 	    index = f.readline()
 	  
