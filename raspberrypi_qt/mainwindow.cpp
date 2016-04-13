@@ -98,8 +98,6 @@ MainWindow::MainWindow(QWidget *parent)
                     gpio17->getval_gpio(inputstate); // checking again to ensure that state "0" is due to button press and not noise
             if(inputstate == "0")
             {
-                cout << "input pin state is definitely "Pressed". Turning LED ON" <<endl;
-                gpio4->setval_gpio("1"); // turn LED ON
 
                 cout << " Waiting until pin is unpressed....." << endl;
                 while (inputstate == "0"){
@@ -112,7 +110,6 @@ MainWindow::MainWindow(QWidget *parent)
                 cout << "input pin state is definitely "UnPressed". That was just noise." <<endl;
 
         }
-        gpio4->setval_gpio("0");
 
     }
 	//mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
