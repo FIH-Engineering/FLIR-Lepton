@@ -75,17 +75,16 @@ MainWindow::MainWindow(QWidget *parent)
     //layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     
 	
-	mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
-    rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
+	//mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
+    //rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
 	
 	while (1)
 	{
-	if (rpiGpio.readPin(17) == mmapGpio::LOW)
+	if (rpiGpio.readPin(17) == 0)
 		{
-			//nothing
+			qDebug()<<"pressed";
 		}
-	else
-		saveSnapshot();
+
 		
 	
 	}
