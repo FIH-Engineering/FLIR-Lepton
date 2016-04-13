@@ -79,11 +79,12 @@ MainWindow::MainWindow(QWidget *parent)
     rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to output
 	if(rpiGpio.readPin(17) == mmapGpio::LOW){
         saveSnapshot();
+		qDebug()<<"Pressed";
 		usleep(200000); 
 		}
-	else if(rpiGpio.readPin(17) == mmapGpio::HIGH){
-		usleep(200000);
-	}
+	//else if(rpiGpio.readPin(17) == mmapGpio::HIGH){
+		//usleep(200000);
+	//}
 	
 	thread->start();
     
