@@ -75,13 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     //layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     //connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	
-	mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
-    rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to output
-	if(rpiGpio.readPin(17) == mmapGpio::LOW){
-        saveSnapshot();
-		qDebug()<<"Pressed";
-		usleep(200000); 
-		}
+
 	//else if(rpiGpio.readPin(17) == mmapGpio::HIGH){
 		//usleep(200000);
 	//}
@@ -127,7 +121,13 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 
-	
+	mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
+    rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to output
+	if(rpiGpio.readPin(17) == mmapGpio::LOW){
+        saveSnapshot();
+		qDebug()<<"Pressed";
+		usleep(200000); 
+		}
     
 
 }
