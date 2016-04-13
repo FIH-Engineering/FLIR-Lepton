@@ -80,7 +80,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	while (1)
 	{
-	if (rpiGpio.readPin(17) == mmapGpio::LOW)
+	if (rpiGpio.readPin(17) == mmapGpio::HIGH)
 		{
 			qDebug()<<"pressed";
 			saveSnapshot();
