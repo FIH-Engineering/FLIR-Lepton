@@ -80,10 +80,18 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	while (1)
 	{
-	if (rpiGpio.readPin(17) == 0)
-		{
-			qDebug()<<"pressed";
-		}
+	
+	//rpiGpio.writePinState(17, mmapGpio::LOW)
+	//if (rpiGpio.readPin(17) == mmapGpio::LOW)
+		//{
+			rpiGpio.writePinState(17, mmapGpio::HIGH)
+			qDebug()<<"hIGH";
+			usleep(300);
+			rpiGpio.writePinState(17, mmapGpio::LOW)
+			qDebug()<<"LOW";
+		
+	//else if(rpiGpio.readPin(17) == mmapGpio::HIGH)
+	
 
 		
 	
