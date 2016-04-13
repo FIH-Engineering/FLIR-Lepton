@@ -57,9 +57,9 @@ if __name__ == '__main__':
         gpsdLog = open("GPSLOG.txt", "a")
         indfile = open("index.txt", "a")
         index = index + 1
-	    indfile.close()
+        indfile.close()
         print(index, end = "\n", file = indfile)
-	    print("image", index - 1, sep = "*", end="  *  ",file=gpsdLog)
+        print("image", index - 1, sep = "*", end="  *  ",file=gpsdLog)
         print(latitude, sep = "*", end="  *  ",file=gpsdLog)
         print(longitude, sep = "*", end="  *  ",file=gpsdLog)
         print(time1, sep = "+", end="\n",file=gpsdLog)
