@@ -79,7 +79,7 @@ MainWindow::MainWindow(QWidget *parent)
     rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
 	
 	if (rpiGpio.readPin(17) == mmapGpio::LOW){
-	qDebug()<<"pressed"
+	qDebug()<<"pressed";
 	snapshotButton.clicked();
 	connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 	}
