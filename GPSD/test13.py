@@ -41,13 +41,15 @@ if __name__ == '__main__':
       button = GPIO.input(17)
 	  
 	  
-      with open("index.txt", "rb") as f:
-        first = f.readline() 		# Read the first line
-        f.seek(-2,2) 				# Jump to the second last byte
-        while f.read(1) != b"\n":	# Until EOL is found..
-	      f.seek(-2,1)				#jump back read byte plus 1
-        index = 0
-        index = f.readline()
+     # with open("index.txt", "rb") as f:
+       # first = f.readline() 		# Read the first line
+        #f.seek(-2,2) 				# Jump to the second last byte
+        #while f.read(1) != b"\n":	# Until EOL is found..
+	     # f.seek(-2,1)				#jump back read byte plus 1
+       # index = 0
+       # index = f.readline()
+      index = file("index.txt", "r").readlines()[-1]
+	  
 	  
       #if button is pressed than write to file
       if button == False:
@@ -57,9 +59,9 @@ if __name__ == '__main__':
         gpsdLog = open("GPSLOG.txt", "a")
         indfile = open("index.txt", "a")
         index = index + 1
-        indfile.close()
         print(index, end = "\n", file = indfile)
-        print("image", index - 1, sep = "*", end="  *  ",file=gpsdLog)
+        indfile.close()
+        print("image", index - 1, " ", sep = "*", end="  *  ",file=gpsdLog)
         print(latitude, sep = "*", end="  *  ",file=gpsdLog)
         print(longitude, sep = "*", end="  *  ",file=gpsdLog)
         print(time1, sep = "+", end="\n",file=gpsdLog)
