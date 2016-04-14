@@ -48,7 +48,8 @@ if __name__ == '__main__':
 		  ind.seek(-2,1)				#jump back the read byte plus one more
         index = ind.readline()
         number = int(index)
-      #if button is pressed than write to file
+      
+	  #if button is pressed than write to file
       if button == False:
         latitude = gpsd.fix.latitude
         longitude = gpsd.fix.longitude
