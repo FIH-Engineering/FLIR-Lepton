@@ -9,6 +9,7 @@
 #include <QGridLayout>
 #include <QImage>
 #include <QPixmap>
+#include <QDebug>
 #include <QPainter>
 #include <QFile>
 #include <QDataStream>
