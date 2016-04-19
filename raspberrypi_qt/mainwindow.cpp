@@ -50,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
     imageLabel->setPixmap(filler);
 
     thread = new LeptonThread();
-	
+
 	//added	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
@@ -63,34 +63,24 @@ MainWindow::MainWindow(QWidget *parent)
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
-	connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
+    connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 		
 
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     
-	
-	//Snapshot button fnu
+	////////////////////////////////////////////////////////////////////
 	string inputstate;
 	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
-
-  
-       
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
         if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
-			saveSnapshot();
-       
+		saveSnapshot();
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
-
-        
-    
-
-
-	
+       ///////////////////////////////////////////////////////////////////
 	thread->start();
     
 
@@ -200,5 +190,6 @@ void MainWindow::saveSnapshot() {
 	msgBox.button(QMessageBox::Ok)->setVisible(false); 
 	msgBox.button(QMessageBox::Ok)->animateClick(2000); 
 	msgBox.exec();	
+}
 }
 }
