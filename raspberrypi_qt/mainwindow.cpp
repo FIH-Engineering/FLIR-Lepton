@@ -65,8 +65,9 @@ MainWindow::MainWindow(QWidget *parent)
 		
 
     QPushButton *snapshotButton = new QPushButton("Snapshot");
+  
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
-    
+    /*
 	
 	//Snapshot button fnu
 	string inputstate;
@@ -85,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
         }
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
-
+*/
         }
     //}
 
