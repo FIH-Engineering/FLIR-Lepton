@@ -58,7 +58,8 @@ MainWindow::MainWindow(QWidget *parent)
 	 //set font    
 	QFont font;
 	font.setPointSize(32); ////////may be too big for Maxtemp. digits might spill over
-	font.setBold(true);
+	font.setFamily("Helvetica");
+	font.setLight(true);
 	
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
