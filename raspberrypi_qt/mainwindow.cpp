@@ -87,19 +87,19 @@ MainWindow::MainWindow(QWidget *parent)
 	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
-	 //while(1)
-    //{
-        //usleep(500000);  // wait for 0.5 seconds
+	 while(1)
+    {
+        usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
-        if(inputstate == "1") // if input pin is at state "0" i.e. button pressed
+        if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
         {
 			snapshotButton->click();
 
         }
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
-    //}
+    }
 
 
 	
