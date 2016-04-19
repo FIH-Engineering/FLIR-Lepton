@@ -82,6 +82,7 @@ MainWindow::MainWindow(QWidget *parent)
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     
+	string inputstate;
 	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
@@ -189,7 +190,26 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 
 void MainWindow::saveSnapshot() {
 	int minOutput, maxOutput;
-    ++snapshotCount;
+    
+	/*
+	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
+	QFile snapshotNumber (QString("snapshotNumber.txt"));
+	snapshotNumber.open(QIODevice::Truncate | QIODevice::ReadWrite)
+	if (snapshotNumber.open(QIODevice::Truncate | QIODevice::ReadWrite))
+    {
+        snapshotNumber >> snapshotCount;
+        snapshotCount++;
+    }
+    else
+        snapshotCount = 1; // if it does not exist, start from sequence 1.
+
+    // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
+    snapshotNumber << snapshotCount;
+	//end of adding
+	*/
+	
+	
+	//++snapshotCount;
 
     // Raw file format: binary, one word for min value, one for max value, then 80*60 words of raw data
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
@@ -198,6 +218,9 @@ void MainWindow::saveSnapshot() {
     rawOut << rawMin << rawMax;
     rawOut.writeRawData((char *) &rawData[0], 2*rawData.size());
     rawFile.close();
+	
+	
+	
 	
 	//calculate output for max and min temp using raw values
 		//Calculate max and min temp
