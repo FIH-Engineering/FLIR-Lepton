@@ -18,4 +18,4 @@ def Int_shutdown(channel):
 # it will react on a falling edge and call our interrupt routine "Int_shutdown"
 GPIO.add_event_detect(18, GPIO.FALLING, callback = Int_shutdown, bouncetime = 2000)   
 while 1:
-    time.sleep(1)
+  time.sleep(1)
