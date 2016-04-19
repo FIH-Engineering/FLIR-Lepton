@@ -58,9 +58,11 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
+		maxlabel->setTextFormat(RichText); 
 		maxlabel->setStyleSheet("color: white");
 		maxlabel->setStyleSheet("font-size: 10px");
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
+		minlabel->setTextFormat(RichText); 
 		minlabel->setStyleSheet("color: white");
 		minlabel->setStyleSheet("font-weight: bold");
 	// done adding
@@ -195,7 +197,7 @@ void MainWindow::saveSnapshot() {
 	// display feedback messagebox information
 	QMessageBox msgBox;
 	msgBox.setWindowTitle(QString("Image Information")); 
-	//.setTextFormat(RichText); 
+	msgBox.setTextFormat(RichText); 
 	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 	QGridLayout* layout = (QGridLayout*)msgBox.layout();
