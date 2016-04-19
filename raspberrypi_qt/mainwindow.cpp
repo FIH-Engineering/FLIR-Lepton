@@ -11,6 +11,7 @@
 #include <QPixmap>
 #include <QPalette>
 #include <QDebug>
+#include <QFont>
 #include <QPainter>
 #include <QFile>
 #include <QDataStream>
@@ -53,18 +54,21 @@ MainWindow::MainWindow(QWidget *parent)
 	//added	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
+	 //set font    
+	QFont font;
+	font.setPointSize(32);
+	font.setBold(true);
+	
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
-		maxlabel->setTextFormat(RichText); 
 		maxlabel->setStyleSheet("color: white");
-		maxlabel->setStyleSheet("font-size: 10px");
-	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
-		minlabel->setTextFormat(RichText); 
+		textLabel->setFont(font);
+	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp)); 
 		minlabel->setStyleSheet("color: white");
-		minlabel->setStyleSheet("font-weight: bold");
+		textLabel->setFont(font);
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
