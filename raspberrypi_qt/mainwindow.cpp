@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 		maxlabel->setStyleSheet("color: white");
-		maxlabel->setStyleSheet("font-size: 20px");
+		maxlabel->setStyleSheet("font-size: 10px");
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 		minlabel->setStyleSheet("color: white");
 		minlabel->setStyleSheet("font-weight: bold");
