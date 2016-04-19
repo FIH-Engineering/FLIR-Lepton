@@ -88,7 +88,7 @@ MainWindow::MainWindow(QWidget *parent)
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
 
-        }
+        
     
 
 
@@ -133,7 +133,8 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//added
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
-    
+    //connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
+
 
 }
 
