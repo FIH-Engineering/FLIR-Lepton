@@ -61,13 +61,12 @@ MainWindow::MainWindow(QWidget *parent)
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
-    connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
-		
+    
 
     QPushButton *snapshotButton = new QPushButton("Snapshot");
-  
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
-    
+    connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
+		
 	 //}
 	//Snapshot button fnu
 	string inputstate;
