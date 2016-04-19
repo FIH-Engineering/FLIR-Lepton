@@ -91,7 +91,7 @@ MainWindow::MainWindow(QWidget *parent)
         usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
-        if(inputstate == "1") // if input pin is at state "0" i.e. button pressed
+        /*if(inputstate == "1") // if input pin is at state "0" i.e. button pressed
         {
             cout << "input pin state is Pressed.n Will check input pin state again in 20ms "<<endl;
                 usleep(20000);
@@ -110,8 +110,7 @@ MainWindow::MainWindow(QWidget *parent)
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
 
-        }
-
+        }*/
     }
 	//mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
     //rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
