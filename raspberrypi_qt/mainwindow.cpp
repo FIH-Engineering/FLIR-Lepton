@@ -73,7 +73,7 @@ MainWindow::MainWindow(QWidget *parent)
 		minlabel->setFont(font);
 	// done adding
 	
-    connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
+    
     
 
     QPushButton *snapshotButton = new QPushButton("Snapshot");
@@ -82,7 +82,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 		
 	 //}
-	//Snapshot button fnu
+	//Snapshot button stuff
 	string inputstate;
 	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
@@ -93,7 +93,7 @@ MainWindow::MainWindow(QWidget *parent)
 	 while(1)
     {
 		
-		
+		connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
         usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
