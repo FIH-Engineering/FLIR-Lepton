@@ -1,3 +1,4 @@
+#!/usr/local/bin/python
 # Written by Alex Gitlitz
  
 from __future__ import print_function 
