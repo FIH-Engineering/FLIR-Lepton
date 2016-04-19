@@ -81,7 +81,7 @@ MainWindow::MainWindow(QWidget *parent)
     snapshotButton->setVisible(false); 
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 		
-	 //}
+	
 	//Snapshot button stuff
 	string inputstate;
 	GPIOClass* gpio17 = new GPIOClass("17"); 
@@ -90,7 +90,7 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	thread->start();
 	
-	
+
    
 }
 
@@ -131,8 +131,8 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
     
-	while(1)
-    {
+		//while(1)
+    //{
 		
 		
         usleep(500000);  // wait for 0.5 seconds
@@ -140,12 +140,12 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
         cout << "Current input pin state is " << inputstate  <<endl;
         if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
         {
-			snapshotButton->click();
-
+			//snapshotButton->click();
+			saveSnapshot();
         }
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
-    } 
+    //} 
 
 }
 
