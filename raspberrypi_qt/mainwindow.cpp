@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
-	this->setStyleSheet("background-color:black;");")
+	this->setStyleSheet("background-color:black;");
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
 
