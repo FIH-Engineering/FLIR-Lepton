@@ -27,7 +27,7 @@
 #include <stdlib.h>
 #include "GPIOClass.h"
 using namespace std;
-
+string inputstate;
 int minTemp, maxTemp;
 int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
