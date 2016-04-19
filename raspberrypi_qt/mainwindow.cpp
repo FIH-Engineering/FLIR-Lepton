@@ -61,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
-		
+    }
 		
 
     QPushButton *snapshotButton = new QPushButton("Snapshot");
