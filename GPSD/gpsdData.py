@@ -44,7 +44,7 @@ if __name__ == '__main__':
 	  
       with open("index.txt", "rb") as ind:
 	    first = ind.readline() 			# Read the first line
-		ind.seek(-2,2) 					# Jump to the second last byte (GETTING ERROR HERE ON RPI)
+        ind.seek(-2,2) 					# Jump to the second last byte (GETTING ERROR HERE ON RPI)
 		while ind.read(1) != b"\n":		# Until EOL is found..
 		  ind.seek(-2,1)				#jump back the read byte plus one more
         index = ind.readline()
