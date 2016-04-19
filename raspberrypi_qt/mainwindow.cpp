@@ -38,6 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
 	
+	#mainWidget 
+	{
+		background-color: rgb(0,0,0);
+	}
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
 
