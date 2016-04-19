@@ -62,77 +62,32 @@ MainWindow::MainWindow(QWidget *parent)
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 		
-	//ADDING BELOW - ATTEMPTING BUTTON STUFF
-	/*unsigned int val = 10;
-    mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
-    rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
-    while(val > 0) {
-        usleep(500000); //delay for 0.5 seconds
-        if(rpiGpio.readPin(17) == mmapGpio::HIGH) // read pin state (no debounce to make code more readable)
-            printf("Button not pressed\n"); // if GPIO17 is HIGH button not pressed (due to pull-up resistor)
-        else{
-            printf("Button is pressed....toggling LED\n"); //else if GPIO17 is low button is pressed
-            }
-            printf("Button not pressed anymore....toggling LED stopped\n");
-        }
-        val--;
-    }*/
 		
-	//GUI Button Below - gonna try to replace with code above
+
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     
+	
+	//Snapshot button fnu
 	string inputstate;
 	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
-	 while(1)
-    {
+	 //while(1)
+    //{
         usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
-        /*if(inputstate == "1") // if input pin is at state "0" i.e. button pressed
+        if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
         {
-            cout << "input pin state is Pressed.n Will check input pin state again in 20ms "<<endl;
-                usleep(20000);
-                    cout << "Checking again ....." << endl;
-                    gpio17->getval_gpio(inputstate); // checking again to ensure that state "0" is due to button press and not noise
-            if(inputstate == "0")
-            {
+			saveSnapshot();
 
-                cout << " Waiting until pin is unpressed....." << endl;
-                while (inputstate == "0"){
-                gpio17->getval_gpio(inputstate);
-                };
-                cout << "pin is unpressed" << endl;
-
-            }
+        }
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
 
-        }*/
-    }
-	//mmapGpio rpiGpio; // instantiate an instance of the mmapGpio class
-    //rpiGpio.setPinDir(17,mmapGpio::INPUT); // set GPIO17 to input
-	
-	/*while (1)
-	{
-	
-	//rpiGpio.writePinState(17, mmapGpio::LOW)
-	//if (rpiGpio.readPin(17) == mmapGpio::LOW)
-		//{
-			rpiGpio.writePinState(17, mmapGpio::HIGH)
-			qDebug()<<"hIGH";
-			usleep(300);
-			rpiGpio.writePinState(17, mmapGpio::LOW)
-			qDebug()<<"LOW";
-		
-	//else if(rpiGpio.readPin(17) == mmapGpio::HIGH)
-	
-
-		
-	
-	}*/
+        }
+    //}
 
 
 	
@@ -176,19 +131,13 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//added
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
-
-
-	/*if(rpiGpio.readPin(17) == mmapGpio::LOW){
-        saveSnapshot();
-		qDebug()<<"Pressed";
-		usleep(200000); 
-		}*/
     
 
 }
 
 void MainWindow::saveSnapshot() {
 	int minOutput, maxOutput;
+	
     
 	/*
 	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
@@ -208,7 +157,7 @@ void MainWindow::saveSnapshot() {
 	*/
 	
 	
-	//++snapshotCount;
+	++snapshotCount;
 
     // Raw file format: binary, one word for min value, one for max value, then 80*60 words of raw data
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
@@ -218,11 +167,8 @@ void MainWindow::saveSnapshot() {
     rawOut.writeRawData((char *) &rawData[0], 2*rawData.size());
     rawFile.close();
 	
-	
-	
-	
 	//calculate output for max and min temp using raw values
-		//Calculate max and min temp
+	//Calculate max and min temp
 	maxOutput = (rawMax - 7063.78)/15.98;
 	minOutput = (rawMin - 7063.78)/15.98;
 	qDebug()<<"Max Temp FINAL"<<maxOutput;
