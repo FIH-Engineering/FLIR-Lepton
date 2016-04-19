@@ -57,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
-	maxlabel->setStyleSheet(color: white");
+	maxlabel->setStyleSheet(color: "white");
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
 	// done adding
 	
