@@ -54,9 +54,10 @@ MainWindow::MainWindow(QWidget *parent)
 	//added	
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
+	
 	 //set font    
 	QFont font;
-	font.setPointSize(32);
+	font.setPointSize(32); ////////may be too big for Maxtemp. digits might spill over
 	font.setBold(true);
 	
 	
@@ -188,7 +189,7 @@ void MainWindow::saveSnapshot() {
 	QFile logFile(QString("LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QTextStream logOut(&logFile);
-	logOut<<" Picture Name: "<<QString("raw%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
+	logOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
 	logFile.close();
 	//Done adding
 
@@ -199,7 +200,7 @@ void MainWindow::saveSnapshot() {
 	// display feedback messagebox information
 	QMessageBox msgBox;
 	msgBox.setWindowTitle(QString("Image Information")); 
-	//msgBox.setTextFormat(RichText); 
+	msgBox.setStyleSheet("background-color:black;");
 	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	msgBox.setInformativeText(QString("Photo Saved as: rgb%1.jpg").arg(snapshotCount));
 	QGridLayout* layout = (QGridLayout*)msgBox.layout();
