@@ -107,10 +107,6 @@ return this->gpionum;
 
 }
 
-
-
-
-
 int main()
 {
 	string inputstate;

@@ -85,10 +85,10 @@ int GPIOClass::getval_gpio(string& val){
 
     getvalgpio >> val ;  //read gpio value
 
-    if(val != "1")
-        val = "0";
-    else
+    if(val != "0")
         val = "1";
+    else
+        val = "0";
 
     getvalgpio.close(); //close the value file
     return 0;
