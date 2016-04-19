@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent)
         }
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
-*/
+
        
     //}
 
