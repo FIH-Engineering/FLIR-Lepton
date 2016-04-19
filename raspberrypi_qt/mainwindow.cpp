@@ -27,9 +27,11 @@
 #include "GPIOClass.h"
 using namespace std;
 int minTemp, maxTemp;
-
-int MainWindow::snapshotCount = 0;
-
+/////////////////////////////////////
+/////////////////////////////////////
+int MainWindow::snapshotCount = 0; //This is bad. Would always restart at 0 if stays in this. 
+//////////////////////////////////////
+//////////////////////////////////////
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , rawData(LeptonThread::FrameWords)
@@ -73,8 +75,8 @@ MainWindow::MainWindow(QWidget *parent)
 	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
-	 //while(1)
-    //{
+
+  
         usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
@@ -87,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
 
         }
-    //}
+    
 
 
 	
