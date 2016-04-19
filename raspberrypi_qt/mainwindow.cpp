@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
-		
+	connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 		
 
     QPushButton *snapshotButton = new QPushButton("Snapshot");
@@ -77,14 +77,12 @@ MainWindow::MainWindow(QWidget *parent)
 	gpio17->setdir_gpio("in");
 
   
-        usleep(500000);  // wait for 0.5 seconds
+       
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
         if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
-        {
 			saveSnapshot();
-
-        }
+       
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
 
@@ -202,4 +200,5 @@ void MainWindow::saveSnapshot() {
 	msgBox.button(QMessageBox::Ok)->setVisible(false); 
 	msgBox.button(QMessageBox::Ok)->animateClick(2000); 
 	msgBox.exec();	
+}
 }
