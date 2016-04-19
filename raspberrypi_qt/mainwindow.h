@@ -20,6 +20,7 @@ class MainWindow : public QMainWindow {
     QLabel *imageLabel, *maxlabel, *minlabel;
     LeptonThread *thread;
     QGridLayout *layout;
+	GPIOClass* gpio17;
 
     unsigned short rawMin, rawMax;
     QVector<unsigned short> rawData;
