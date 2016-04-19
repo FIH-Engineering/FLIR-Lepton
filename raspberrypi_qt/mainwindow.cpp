@@ -87,10 +87,13 @@ MainWindow::MainWindow(QWidget *parent)
 	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
+	thread->start();
+	
+	
 	 while(1)
     {
 		
-		thread->start();
+		
         usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
