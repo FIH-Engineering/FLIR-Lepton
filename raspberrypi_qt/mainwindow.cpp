@@ -58,8 +58,11 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
-	maxlabel->setStyleSheet("color: white");
+		maxlabel->setStyleSheet("color: white");
+		maxlabel->setStyleSheet("font-size: 20px");
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
+		minlabel->setStyleSheet("color: white");
+		minlabel->setStyleSheet("font-weight: bold");
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
