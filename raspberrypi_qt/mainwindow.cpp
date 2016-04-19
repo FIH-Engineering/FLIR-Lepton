@@ -65,10 +65,10 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 		maxlabel->setStyleSheet("color: white");
-		textLabel->setFont(font);
+		maxlabel->setFont(font);
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp)); 
 		minlabel->setStyleSheet("color: white");
-		textLabel->setFont(font);
+		minlabel->setFont(font);
 	// done adding
 	
     connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
