@@ -1,9 +1,9 @@
 #include "mainwindow.h"
+#include "LeptonThread.h"
 
 #include <QLabel>
 #include <QPushButton>
 #include <QTimer>
-
 #include <QMessageBox>
 #include <QSpacerItem>
 #include <QGridLayout>
@@ -12,8 +12,6 @@
 #include <QPainter>
 #include <QFile>
 #include <QDataStream>
-
-#include "LeptonThread.h"
 
 //button files?
 #include "mmapGpio.h"
@@ -26,9 +24,9 @@
 #include <stdlib.h>
 #include "GPIOClass.h"
 using namespace std;
-int minTemp, maxTemp;
 
-int MainWindow::snapshotCount = 0;
+int minTemp, maxTemp;
+int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -37,8 +35,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
-	
-	
+	this->setStyleSheet("background-color:black;");")
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
 
@@ -49,6 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
     imageLabel->setPixmap(filler);
 
     thread = new LeptonThread();
+	
 	
 	//added	
 	maxlabel = new QLabel(this);
