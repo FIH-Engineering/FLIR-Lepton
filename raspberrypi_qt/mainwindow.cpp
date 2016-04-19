@@ -68,7 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
   
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     /*
-	
+	 }
 	//Snapshot button fnu
 	string inputstate;
 	GPIOClass* gpio17 = new GPIOClass("17"); 
@@ -87,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent)
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
 */
-        }
+       
     //}
 
 
