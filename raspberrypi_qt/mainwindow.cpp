@@ -78,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
     //{
         //usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
-        //cout << "Current input pin state is " << inputstate  <<endl;
+        cout << "Current input pin state is " << inputstate  <<endl;
         if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
         {
 			snapshotButton->click();
