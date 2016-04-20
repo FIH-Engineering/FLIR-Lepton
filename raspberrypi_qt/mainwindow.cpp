@@ -96,7 +96,7 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
 	pintimer->start(250);
 
-			
+	QFile snapshotNumber (QString("snapshotNumber.txt"));		
 	   
 }
 
@@ -164,10 +164,9 @@ void MainWindow::saveSnapshot() {
 	
     
 	
-	/*//ATTEMPTING TO CHANGE CNAPSHOT COUNT
-	QFile snapshotNumber (QString("snapshotNumber.txt"));
-	snapshotNumber.open(QIODevice::Truncate | QIODevice::ReadWrite)
-	if (snapshotNumber.open(QIODevice::Truncate | QIODevice::ReadWrite))
+	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
+	snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate)
+	if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     {
         snapshotNumber >> snapshotCount;
         snapshotCount++;
@@ -176,7 +175,8 @@ void MainWindow::saveSnapshot() {
         snapshotCount = 1; // if it does not exist, start from sequence 1.
     // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
     snapshotNumber << snapshotCount;
-	//end of adding*/
+	snapshotNumber.close();
+	//end of adding
 	
 	
 	
