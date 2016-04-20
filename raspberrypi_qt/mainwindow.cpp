@@ -161,7 +161,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 
 void MainWindow::saveSnapshot() {
 	int minOutput, maxOutput;
-	string snapshotString;
+	Qstring snapshotString;
 	
     
 	
@@ -171,7 +171,8 @@ void MainWindow::saveSnapshot() {
 	QTextStream snapshotOut(&snapshotNumber);
 	//if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     //{
-        snapshotOut>>snapshotString;
+        //snapshotOut>>snapshotString;
+		snapshotString = snapshotOut.readLine();
 		int snapshotCount = atoi(snapshotString.c_str());
         ++snapshotCount;
     //}
