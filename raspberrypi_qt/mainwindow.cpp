@@ -165,17 +165,17 @@ void MainWindow::saveSnapshot() {
     
 	
 	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
-	QFile snapshotNumber (QString("snapshotNumber.txt"));
+	QFile snapshotNumber(QString("snapshotNumber.txt"));
 	snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate)
 	if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     {
-        snapshotNumber >> snapshotCount;
+        snapshotNumber>>snapshotCount;
         snapshotCount++;
     }
     else
         snapshotCount = 1; // if it does not exist, start from sequence 1.
     // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
-    snapshotNumber << snapshotCount;
+    snapshotNumber<<snapshotCount;
 	snapshotNumber.close();
 	//end of adding
 	
