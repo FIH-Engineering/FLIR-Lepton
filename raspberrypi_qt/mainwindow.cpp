@@ -119,8 +119,8 @@ MainWindow::MainWindow(QWidget *parent)
 	thread->start();
 
 	
-	connect(timer, SIGNAL(timeout()), this, SLOT(readInputPin()));
-	timer->start(500);
+	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
+	pintimer->start(500);
 	
 	
 	//connect(gpio17, SIGNAL(getval_gpio(inputstate)), this, SLOT(saveSnapshot()));

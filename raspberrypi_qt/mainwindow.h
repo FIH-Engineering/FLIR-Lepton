@@ -21,6 +21,7 @@ class MainWindow : public QMainWindow {
     LeptonThread *thread;
     QGridLayout *layout;
 	GPIOClass* gpio17;
+	QTimer *pintimer;
 
     unsigned short rawMin, rawMax;
     QVector<unsigned short> rawData;
