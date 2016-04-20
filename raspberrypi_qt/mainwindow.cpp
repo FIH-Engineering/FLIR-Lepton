@@ -172,7 +172,8 @@ void MainWindow::saveSnapshot() {
     //{
         //snapshotOut>>snapshotString;
 		Qstring snapshotString = snapshotOut.readLine();
-		int snapshotCount = atoi(snapshotString.c_str());
+		cout<<snapshotString;
+		//int snapshotCount = atoi(snapshotString.c_str());
         ++snapshotCount;
     //}
     //else
