@@ -84,13 +84,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 		
 	
-	// Physical pushbutton initilization 
-	/*string inputstate;
-	gpio17 = new GPIOClass("17"); 
-	gpio17->export_gpio();
-	gpio17->setdir_gpio("in");
-	*/
-	
 	
 	// Update image as IR camera pans area
 	connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
@@ -102,11 +95,7 @@ MainWindow::MainWindow(QWidget *parent)
 	 
 	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
 	pintimer->start(250);
-	
-	
-	//connect(gpio17, SIGNAL(getval_gpio(inputstate)), this, SLOT(saveSnapshot()));
-    
-			
+
 			
 	   
 }
@@ -174,8 +163,8 @@ void MainWindow::saveSnapshot() {
 	int minOutput, maxOutput;
 	
     
-	/*
-	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
+	
+	/*//ATTEMPTING TO CHANGE CNAPSHOT COUNT
 	QFile snapshotNumber (QString("snapshotNumber.txt"));
 	snapshotNumber.open(QIODevice::Truncate | QIODevice::ReadWrite)
 	if (snapshotNumber.open(QIODevice::Truncate | QIODevice::ReadWrite))
@@ -187,8 +176,8 @@ void MainWindow::saveSnapshot() {
         snapshotCount = 1; // if it does not exist, start from sequence 1.
     // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
     snapshotNumber << snapshotCount;
-	//end of adding
-	*/
+	//end of adding*/
+	
 	
 	
 	++snapshotCount;
@@ -222,7 +211,7 @@ void MainWindow::saveSnapshot() {
 
 	// Display feedback messagebox information for when snapshot is captured
 	QMessageBox msgBox;
-	msgBox.setStyleSheet(QString::fromUtf8("background-color:black;"));
+	//msgBox.setStyleSheet(QString::fromUtf8("background-color:black;"));
 	msgBox.setWindowTitle(QString("Image Information")); 
 	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	msgBox.setInformativeText(QString("        Photo Saved as: rgb%1.jpg").arg(snapshotCount));
