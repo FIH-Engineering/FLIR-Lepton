@@ -160,7 +160,8 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 }
 
 void MainWindow::saveSnapshot() {
-	int minOutput, maxOutput, snapshotCount;
+	int minOutput, maxOutput;
+	std::string snapshotCount;
 	
     
 	
@@ -171,13 +172,14 @@ void MainWindow::saveSnapshot() {
 	//if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     //{
         snapshotOut>>snapshotCount;
+		number(snapshotCount);
         ++snapshotCount;
     //}
     //else
        // snapshotCount = 1; // if it does not exist, start from sequence 1.
     // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
     snapshotOut<<snapshotCount;
-	snapshotNumber.close();
+	std::stoi( snapshotCount );
 	//end of adding
 	
 
