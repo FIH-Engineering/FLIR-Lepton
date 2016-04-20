@@ -94,34 +94,7 @@ public:
 	}
 
 	//Prototypes of Client Objects
-	string GetIP()
-	{
-		return(IPAddress);
-	}
 
-	void SetIP(string IP_in)
-	{
-		IPAddress = IP_in;
-	}
-
-	int GetPort()
-	{
-		return(port);
-	}
-
-	void SetPort(int port_in)
-	{
-		port = port_in;
-	}
-	time_t GetDate()
-	{
-		return(date);
-	}
-
-	void SetDate(time_t date_in)
-	{
-		date = date_in;
-	}
 
 	int GetService_Status()
 	{
@@ -156,18 +129,11 @@ void setService(service device)
 	{
 		deviceFile << ID_LOG; //Seperation Header 
 							  //Store Values of object in a file to read from later
-		deviceFile << device.GetServiceID() << endl;
-		deviceFile << device.GetServiceName() << endl;
-		deviceFile << device.GetServiceType() << endl;
-		deviceFile << device.GetIP() << endl;
-		deviceFile << device.GetPort() << endl;
-		deviceFile << device.GetDate() << endl;
-		deviceFile << device.GetService_Status() << endl;
-		deviceFile << device.GetServiceLifeSpan() << endl;
-		deviceFile << device.GetServiceContext() << endl;
+		
 		//close output file
 		deviceFile.close();
 	}
+
 	//Clear ID File 
 	ofstream file;
 	file.open("ID.txt", ofstream::out | ofstream::trunc);   //deletes everything in the file
@@ -187,11 +153,10 @@ void setService(service device)
 service getService(int index)
 {
 	//temp variable declarations
-	time_t t;
-	int port, status, life;
 	service dev1;      //service object
 	string input, compare;  //local compare
-							//set Service's ID to Index
+	
+	//set Service's ID to Index
 	dev1.SetServiceID(index);
 	//convert index to the compare start of file
 	ostringstream conv;
@@ -204,79 +169,7 @@ service getService(int index)
 	{
 		getline(deviceFile, input);
 	}
-	//Set info for service (pulls line one by one)
-	getline(deviceFile, input);
-	dev1.SetServiceName(input);
-	getline(deviceFile, input);
-	dev1.SetServiceType(input);
-	getline(deviceFile, input);
-	dev1.SetIP(input);
 
-	//Pull in additional information for connections
-	while (1)
-	{
-		getline(deviceFile, input);
-		stringstream InputStream(input);
-		if (InputStream >> port)
-		{
-			dev1.SetPort(port);
-			break;
-		}
-		else
-		{
-			exit(1);
-		}
-	}
-	while (1)
-	{
-		getline(deviceFile, input);
-		stringstream InputStream(input);
-		if (InputStream >> t)
-		{
-			dev1.SetDate(t);
-			break;
-		}
-		else
-		{
-			exit(1);
-		}
-	}
-	while (1)
-	{
-		getline(deviceFile, input);
-		stringstream InputStream(input);
-		if (InputStream >> status)
-		{
-			dev1.SetService_Status(status);
-			break;
-		}
-		else
-		{
-			exit(1);
-		}
-	}
-
-	while (1)
-	{
-		getline(deviceFile, input);
-		stringstream InputStream(input);
-
-		if (InputStream >> life)
-		{
-			dev1.SetServiceLifeSpan(life);
-			break;
-		}
-		else
-		{
-			exit(1);
-		}
-
-	}
-	getline(deviceFile, input);
-	dev1.SetServiceContext(input);
-	//close storage file and return object of the service
-	deviceFile.close();
-	return dev1;
 
 }
 
@@ -298,14 +191,6 @@ int getNEXTSERVICEID()
 	return index;   //number of the last registered service
 }
 
-// loop to proccess data buffer
-while (buffer[i] != COMPARE)
-{
-	tempbuffer[j] = buffer[i];
-	i++;
-	j++;
-}
-i++;
 
 //char buffer to string to int
 tempstring = sconvert(tempbuffer, j); //string conversion
@@ -317,19 +202,7 @@ string tempstring = sconvert(tempbuffer, j);
 if (tempstring == "Services")
 {
 	k = 0;
-	//load service data into temp arrays to be displayed
-	//loads all registered services using the while loop and service ID
-	while (k<index)
-	{
-		service dev1 = getService(k);
-		tempName[k] = dev1.GetServiceName() + "*";
-		tempServiceType[k] = dev1.GetServiceType() + "*";
-		tempIPaddress[k] = dev1.GetIP() + "*";
-		tempPort[k] = dev1.GetPort();
-		tempContext[k] = dev1.GetServiceContext() + "*";
-		k++;
-	}
-	k = 0;
+
 
 	//output data with an header to ensure no data loss in socket communication
 	while (k<index)

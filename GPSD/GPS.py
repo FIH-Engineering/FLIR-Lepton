@@ -42,11 +42,11 @@ if __name__ == '__main__':
 	  
 	  
       with open("index.txt", "rb") as ind:
-	    first = ind.readline() 			# Read the first line
-		ind.seek(-2,2) 					# Jump to the second last byte (GETTING ERROR HERE ON RPI)
-		while ind.read(1) != b"\n":		# Until EOL is found..
-		  ind.seek(-2,1)				#jump back the read byte plus one more
-        index = ind.readline()
+	    index = ind.readline() 			# Read the first line
+		#ind.seek(-2,2) 					# Jump to the second last byte (GETTING ERROR HERE ON RPI)
+		#while ind.read(1) != b"\n":		# Until EOL is found..
+		 # ind.seek(-2,1)				#jump back the read byte plus one more
+        #index = ind.readline()
         number = int(index)
       
 	  #if button is pressed than write to file
@@ -55,9 +55,9 @@ if __name__ == '__main__':
         longitude = gpsd.fix.longitude
         time1 = gpsd.utc,' + ', gpsd.fix.time
         gpsdLog = open("GPSLOG.txt", "a")
-        indfile = open("index.txt", "a")
+        indfile = open("index.txt", "w")
         number = number + 1
-        print(number, end = "\n", file = indfile)
+        print(number, file = indfile)
         indfile.close()
         print("image", index - 1, sep = "*", end="  *  ",file=gpsdLog)
         print(latitude, sep = "*", end="  *  ",file=gpsdLog)
