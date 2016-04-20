@@ -161,7 +161,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 
 void MainWindow::saveSnapshot() {
 	int minOutput, maxOutput;
-	std::string snapshotCount;
+	int snapshotCount;
 	
     
 	
@@ -172,7 +172,6 @@ void MainWindow::saveSnapshot() {
 	//if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     //{
         snapshotOut>>snapshotCount;
-		number(snapshotCount);
         ++snapshotCount;
     //}
     //else
