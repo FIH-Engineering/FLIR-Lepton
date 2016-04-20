@@ -33,6 +33,7 @@ public:
 public slots:
     void saveSnapshot();
     void updateImage(unsigned short *, int, int);
+	void readInputPin(void);
 };
 
 #endif // MAINWINDOW_H

@@ -33,11 +33,8 @@ int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 	
 	
-	gpio17 = new GPIOClass("17"); 
-	gpio17->export_gpio();
-	gpio17->setdir_gpio("in");
-	gpio17->getval_gpio(inputstate); 
-void readInputPin(void)
+
+void MainWindow::readInputPin(void)
 {
     /*unsigned int pinVal;
     pinVal = rpiGpio->readPin(17);
@@ -125,7 +122,10 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	thread->start();
 
-	
+	gpio17 = new GPIOClass("17"); 
+	gpio17->export_gpio();
+	gpio17->setdir_gpio("in");
+	gpio17->getval_gpio(inputstate); 
 	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
 	pintimer->start(500);
 	
