@@ -28,7 +28,7 @@
 #include "GPIOClass.h"
 using namespace std;
 int minTemp, maxTemp;
-int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
+//int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -160,7 +160,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 }
 
 void MainWindow::saveSnapshot() {
-	int minOutput, maxOutput;
+	int minOutput, maxOutput, snapshotCount;
 	
     
 	
