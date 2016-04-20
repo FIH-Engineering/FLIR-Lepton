@@ -94,7 +94,7 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	thread->start();
 	
-	        /*usleep(500000);  // wait for 0.5 seconds
+	    //usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
         if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
@@ -104,7 +104,7 @@ MainWindow::MainWindow(QWidget *parent)
 			cout << "picture saved" << endl;
         }
             else
-                cout << "input pin state is definitely UnPressed. That was just noise." <<endl;*/
+                cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
    
 }
 
