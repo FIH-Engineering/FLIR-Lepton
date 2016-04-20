@@ -42,7 +42,7 @@ if __name__ == '__main__':
 	  
       with open("index.txt", "rb") as ind:
 	    index = ind.readline()
-		number = int(index)
+	    number = int(index)
       
 	  #if button is pressed than write to file
       if button == False:
