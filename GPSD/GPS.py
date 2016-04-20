@@ -51,10 +51,10 @@ if __name__ == '__main__':
         time1 = gpsd.utc,' + ', gpsd.fix.time
         gpsdLog = open("GPSLOG.txt", "a")
         indfile = open("index.txt", "w")
+        print("image", number, sep = "*", end="  *  ",file=gpsdLog)
         number = number + 1
         print(number, file = indfile)
         indfile.close()
-        print("image", index - 1, sep = "*", end="  *  ",file=gpsdLog)
         print(latitude, sep = "*", end="  *  ",file=gpsdLog)
         print(longitude, sep = "*", end="  *  ",file=gpsdLog)
         print(time1, sep = "+", end="\n",file=gpsdLog)
