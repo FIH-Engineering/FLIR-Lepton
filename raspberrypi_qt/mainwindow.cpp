@@ -31,6 +31,27 @@ string inputstate;
 int minTemp, maxTemp;
 int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
+void readInputPin(void)
+{
+    /*unsigned int pinVal;
+    pinVal = rpiGpio->readPin(17);
+    if(pinVal == mmapGpio::HIGH)
+        lblInputPinState->setText("GPIO17 is HIGH...PushButton not pressed");
+    else
+        lblInputPinState->setText("GPIO17 is LOW...PushButton pressed");*/
+	
+	gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
+    cout << "Current input pin state is " << inputstate  <<endl;
+	if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
+    {
+		//snapshotButton->click();
+		//saveSnapshot();
+		cout << "picture saved" << endl;
+    }
+    else
+        cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , rawData(LeptonThread::FrameWords)
@@ -74,6 +95,9 @@ MainWindow::MainWindow(QWidget *parent)
 		minlabel->setStyleSheet("color: white");
 		minlabel->setFont(font);
     
+	
+	// timer to check pin value
+	pintimer = new QTimer(this);
     
 	// GUI pushbutton. Will be hidden from view
     QPushButton *snapshotButton = new QPushButton("Snapshot");
@@ -94,18 +118,13 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	thread->start();
 
-	connect(gpio17, SIGNAL(getval_gpio(inputstate)), this, SLOT(saveSnapshot()));
-	    //usleep(500000);  // wait for 0.5 seconds
-    gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
-    cout << "Current input pin state is " << inputstate  <<endl;
-    if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
-    {
-		//snapshotButton->click();
-		//saveSnapshot();
-		cout << "picture saved" << endl;
-    }
-    else
-        cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
+	
+	connect(timer, SIGNAL(timeout()), this, SLOT(readInputPin()));
+	timer->start(500);
+	
+	
+	//connect(gpio17, SIGNAL(getval_gpio(inputstate)), this, SLOT(saveSnapshot()));
+    
 			
 			
 	   
