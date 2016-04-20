@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QImage>
 #include <QTimer>
-
+#include "GPIOClass.h"
 class QLabel;
 class QMessageBox;
 class LeptonThread;
