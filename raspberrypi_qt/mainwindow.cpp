@@ -167,21 +167,19 @@ void MainWindow::saveSnapshot() {
 	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
 	QFile snapshotNumber(QString("snapshotNumber.txt"));
 	snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate)
+	QTextStream snapshotOut(&snapshotNumber);
 	if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     {
-        snapshotNumber>>snapshotCount;
+        snapshotOut>>snapshotCount;
         snapshotCount++;
     }
     else
         snapshotCount = 1; // if it does not exist, start from sequence 1.
     // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
-    snapshotNumber<<snapshotCount;
+    snapshotOut<<snapshotCount;
 	snapshotNumber.close();
 	//end of adding
 	
-	
-	
-	++snapshotCount;
 
     // Raw file format: binary, one word for min value, one for max value, then 80*60 words of raw data
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
