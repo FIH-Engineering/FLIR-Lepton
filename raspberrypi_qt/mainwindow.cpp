@@ -30,10 +30,10 @@ using namespace std;
 string inputstate;
 int minTemp, maxTemp;
 int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
-	string inputstate;
+
 	
-	GPIOClass* gpio17;
-	gpio17 = new GPIOClass("17"); 
+	
+	GPIOClass* gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
 	gpio17->getval_gpio(inputstate); 
