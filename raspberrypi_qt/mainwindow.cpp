@@ -171,7 +171,7 @@ void MainWindow::saveSnapshot() {
 	//if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     //{
         snapshotOut>>snapshotCount;
-        snapshotCount++;
+        ++snapshotCount;
     //}
     //else
        // snapshotCount = 1; // if it does not exist, start from sequence 1.
