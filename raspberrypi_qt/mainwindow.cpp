@@ -30,7 +30,11 @@ using namespace std;
 string inputstate;
 int minTemp, maxTemp;
 int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
-
+	string inputstate;
+	gpio17 = new GPIOClass("17"); 
+	gpio17->export_gpio();
+	gpio17->setdir_gpio("in");
+	gpio17->getval_gpio(inputstate); 
 void readInputPin(void)
 {
     /*unsigned int pinVal;
@@ -40,7 +44,8 @@ void readInputPin(void)
     else
         lblInputPinState->setText("GPIO17 is LOW...PushButton pressed");*/
 	
-	gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
+	
+//read state of GPIO17 input pin
     cout << "Current input pin state is " << inputstate  <<endl;
 	if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
     {
@@ -107,11 +112,11 @@ MainWindow::MainWindow(QWidget *parent)
 		
 	
 	// Physical pushbutton initilization 
-	string inputstate;
+	/*string inputstate;
 	gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
-	
+	*/
 	
 	
 	// Update image as IR camera pans area
