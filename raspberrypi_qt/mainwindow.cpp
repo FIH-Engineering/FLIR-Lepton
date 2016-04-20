@@ -96,7 +96,7 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
 	pintimer->start(250);
 
-	QFile snapshotNumber (QString("snapshotNumber.txt"));		
+			
 	   
 }
 
@@ -165,6 +165,7 @@ void MainWindow::saveSnapshot() {
     
 	
 	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
+	QFile snapshotNumber (QString("snapshotNumber.txt"));
 	snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate)
 	if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     {
