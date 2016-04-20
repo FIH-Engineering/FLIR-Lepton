@@ -33,7 +33,7 @@ int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 	
 	
-	GPIOClass* gpio17 = new GPIOClass("17"); 
+	gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
 	gpio17->getval_gpio(inputstate); 
