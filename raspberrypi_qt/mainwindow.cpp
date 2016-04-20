@@ -137,10 +137,11 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
         usleep(500000);  // wait for 0.5 seconds
         gpio17->getval_gpio(inputstate); //read state of GPIO17 input pin
         cout << "Current input pin state is " << inputstate  <<endl;
-        if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
+        if(inputstate == "1") // if input pin is at state "0" i.e. button pressed
         {
 			//snapshotButton->click();
-			saveSnapshot();
+			//saveSnapshot();
+			cout << "picture saved" << endl;
         }
             else
                 cout << "input pin state is definitely UnPressed. That was just noise." <<endl;
