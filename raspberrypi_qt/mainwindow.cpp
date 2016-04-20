@@ -36,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     , rawData(LeptonThread::FrameWords)
     , rgbImage(LeptonThread::FrameWidth, LeptonThread::FrameHeight, QImage::Format_RGB888) {
 
+	
+	// Create initial layout for GUI displaying the IR picture
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
 	this->setStyleSheet("background-color:black;");
@@ -51,11 +53,11 @@ MainWindow::MainWindow(QWidget *parent)
     thread = new LeptonThread();
 	
 	
-	//added	
+	// Add GUI labels for max and min temperatures
 	maxlabel = new QLabel(this);
 	minlabel = new QLabel(this);
 	
-	 //set font    
+	// Format Labels   
 	QFont font;
 	font.setPointSize(32); ////////may be too big for Maxtemp. digits might spill over
 	font.setFamily("Helvetica");
@@ -71,26 +73,24 @@ MainWindow::MainWindow(QWidget *parent)
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp)); 
 		minlabel->setStyleSheet("color: white");
 		minlabel->setFont(font);
-	// done adding
-	
     
     
-
+	// GUI pushbutton. Will be hidden from view
     QPushButton *snapshotButton = new QPushButton("Snapshot");
     layout->addWidget(snapshotButton, 1, 0, Qt::AlignCenter);
     snapshotButton->setVisible(false); 
     connect(snapshotButton, SIGNAL(clicked()), this, SLOT(saveSnapshot()));
 		
 	
-	//Snapshot button stuff
+	// Physical pushbutton initilization 
 	string inputstate;
-	GPIOClass* gpio17 = new GPIOClass("17"); 
+	gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
+	
+	// Update image as IR camera pans area
 	connect(thread, SIGNAL(updateImage(unsigned short *,int,int)), this, SLOT(updateImage(unsigned short *, int,int)));
 	thread->start();
-	
-
    
 }
 
@@ -102,13 +102,12 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     memcpy(&rawData[0], data, 2*LeptonThread::FrameWords);
     rawMin = minValue; rawMax = maxValue;
 	
-	//MAYBE
+	
 	//Calculate max and min temp
 	maxTemp = (maxValue - 7063.78)/15.98;
 	minTemp = (minValue - 7063.78)/15.98;
 	qDebug()<<"Max Temp"<<maxTemp;
 	qDebug()<<"Min Temp"<<minTemp;
-	//Done Adding
 
     // Map "rawData" to rgb values in "rgbImage" via the colormap
     int diff = maxValue - minValue + 1;
@@ -127,7 +126,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
     // ... mark up pixmap, if so desired
     imageLabel->setPixmap(pixmap);	
 	
-	//added
+	//Display temperature values on GUI
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp));
     
@@ -180,27 +179,26 @@ void MainWindow::saveSnapshot() {
     rawOut.writeRawData((char *) &rawData[0], 2*rawData.size());
     rawFile.close();
 	
-	//calculate output for max and min temp using raw values
-	//Calculate max and min temp
+	// Calculate output for max and min temp using raw values
 	maxOutput = (rawMax - 7063.78)/15.98;
 	minOutput = (rawMin - 7063.78)/15.98;
 	qDebug()<<"Max Temp FINAL"<<maxOutput;
 	qDebug()<<"Min Temp FINAL"<<minOutput;
-	//Done Adding
+
 	
-	//ADDING BELOW - ATTEMPTING METADATA SAVE
+	// Save temperature metadata to the text LogFile 
 	QFile logFile(QString("LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QTextStream logOut(&logFile);
 	logOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
 	logFile.close();
-	//Done adding
+
 
     // JPG image, top quality
     rgbImage.save(QString("rgb%1.jpg").arg(snapshotCount), "JPG", 100);
 	
 
-	// display feedback messagebox information
+	// Display feedback messagebox information for when snapshot is captured
 	QMessageBox msgBox;
 	msgBox.setStyleSheet(QString::fromUtf8("background-color:black;"));
 	msgBox.setWindowTitle(QString("Image Information")); 
