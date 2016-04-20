@@ -27,13 +27,8 @@
 #include <stdlib.h>
 #include "GPIOClass.h"
 using namespace std;
-string inputstate;
 int minTemp, maxTemp;
 int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
-
-	
-	
-
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -104,7 +99,7 @@ MainWindow::MainWindow(QWidget *parent)
 	gpio17 = new GPIOClass("17"); 
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
-	gpio17->getval_gpio(inputstate); 
+	 
 	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
 	pintimer->start(250);
 	
@@ -130,6 +125,8 @@ void MainWindow::readInputPin(void)
 	
 	
 //read state of GPIO17 input pin
+	string inputstate;
+	gpio17->getval_gpio(inputstate);
     cout << "Current input pin state is " << inputstate  <<endl;
 	if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
     {
