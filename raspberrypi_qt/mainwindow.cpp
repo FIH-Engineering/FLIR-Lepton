@@ -173,8 +173,8 @@ void MainWindow::saveSnapshot() {
         snapshotOut>>snapshotCount;
         snapshotCount++;
     }
-    else
-        snapshotCount = 1; // if it does not exist, start from sequence 1.
+    //else
+       // snapshotCount = 1; // if it does not exist, start from sequence 1.
     // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
     snapshotOut<<snapshotCount;
 	snapshotNumber.close();
