@@ -116,22 +116,15 @@ const int colormap[] = {255, 255, 255, 253, 253, 253, 251, 251, 251, 249, 249, 2
 
 void MainWindow::readInputPin(void)
 {
-    /*unsigned int pinVal;
-    pinVal = rpiGpio->readPin(17);
-    if(pinVal == mmapGpio::HIGH)
-        lblInputPinState->setText("GPIO17 is HIGH...PushButton not pressed");
-    else
-        lblInputPinState->setText("GPIO17 is LOW...PushButton pressed");*/
 	
-	
-//read state of GPIO17 input pin
+	//read state of GPIO17 input pin
 	string inputstate;
 	gpio17->getval_gpio(inputstate);
     cout << "Current input pin state is " << inputstate  <<endl;
 	if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
     {
 		//snapshotButton->click();
-		//saveSnapshot();
+		saveSnapshot();
 		cout << "picture saved" << endl;
     }
     else
