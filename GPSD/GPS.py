@@ -40,7 +40,6 @@ if __name__ == '__main__':
       #GPIO read
       button = GPIO.input(17)
 	  
-	  
       with open("index.txt", "rb") as ind:
 	    index = ind.readline() 			# Read the first line
         number = int(index)
