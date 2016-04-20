@@ -41,7 +41,7 @@ if __name__ == '__main__':
       button = GPIO.input(17)
 	  
       with open("index.txt", "rb") as ind:
-	    index = ind.readline() 			# Read the first line
+	    index = ind.readline()
         number = int(index)
       
 	  #if button is pressed than write to file
