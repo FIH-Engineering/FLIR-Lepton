@@ -2,6 +2,8 @@
 #include "LeptonThread.h"
 
 #include <QLabel>
+#include <QStyle>
+#include <QApplication>
 #include <QPushButton>
 #include <QTimer>
 #include <QMessageBox>
@@ -31,6 +33,7 @@ int minTemp, maxTemp;
 QString line;
 //int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , rawData(LeptonThread::FrameWords)
@@ -43,7 +46,7 @@ MainWindow::MainWindow(QWidget *parent)
 	this->setStyleSheet("background-color:black;");
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
-
+	mainwidget->setStyle(new QMactintosh);
     imageLabel = new QLabel();
     layout->addWidget(imageLabel, 0, 0, Qt::AlignCenter);
 
