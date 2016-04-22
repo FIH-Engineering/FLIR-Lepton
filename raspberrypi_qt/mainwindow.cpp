@@ -28,7 +28,7 @@
 #include "GPIOClass.h"
 using namespace std;
 int minTemp, maxTemp;
-int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
+//int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -160,32 +160,23 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 }
 
 void MainWindow::saveSnapshot() {
-	int minOutput, maxOutput;
+	int minOutput, maxOutput, snapshotCount;
 	
-    
-
-	//ATTEMPTING TO CHANGE SNAPSHOT COUNT
-	/*QFile snapFILE("snapshotNumber.txt");
-	//snapFILE.open( QIODevice::Text| QIODevice::ReadWrite);
-	if (!snapFILE.open(QIODevice::Text| QIODevice::ReadOnly))
-		qDebug()<<"NOT OPEN ABOOOORRRTTT";
-	QTextStream snapREAD(&snapFILE);
-	//snapFILE>>snapshotCount;
-	QString line = snapREAD.
-	qDebug()<<line;
-	snapFILE.close();*/
+	
+	// Snapshot count index file
 	QFile snapFile(QString("snapshotNumber.txt"));
 	snapFile.open(QIODevice::ReadWrite | QIODevice::Text);
 	QTextStream snapOut(&snapFile);
 	while(!snapOut.atEnd())
 	{
-        QString line = snapOut.readLine(75);
+        QString line = snapOut.readLine(99);
 		qDebug()<<line;
 	}
-	snapOut<<"helllloo";
+	int snapshotCount = line.toInt();
+	snapOut<<snapshotCount++<<endl;
 	snapFile.close();
 
-	
+	// Raw output file
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
     rawFile.open(QIODevice::Truncate | QIODevice::ReadWrite);
     QDataStream rawOut(&rawFile);
