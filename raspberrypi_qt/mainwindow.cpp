@@ -28,6 +28,7 @@
 #include "GPIOClass.h"
 using namespace std;
 int minTemp, maxTemp;
+QString line;
 //int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 MainWindow::MainWindow(QWidget *parent)
@@ -169,7 +170,7 @@ void MainWindow::saveSnapshot() {
 	QTextStream snapOut(&snapFile);
 	while(!snapOut.atEnd())
 	{
-        QString line = snapOut.readLine(99);
+        line = snapOut.readLine(99);
 		qDebug()<<line;
 	}
 	snapshotCount = line.toInt();
