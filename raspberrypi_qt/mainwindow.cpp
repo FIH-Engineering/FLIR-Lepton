@@ -172,7 +172,7 @@ void MainWindow::saveSnapshot() {
         QString line = snapOut.readLine(99);
 		qDebug()<<line;
 	}
-	int snapshotCount = line.toInt();
+	snapshotCount = line.toInt();
 	snapOut<<snapshotCount++<<endl;
 	snapFile.close();
 
