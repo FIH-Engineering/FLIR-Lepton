@@ -65,8 +65,8 @@ MainWindow::MainWindow(QWidget *parent)
 	QFont font;
 	font.setPointSize(24); ////////may be too big for Maxtemp. digits might spill over
 	font.setFamily("Courier");
-	font.setColor("White");
-	font.setWeight("Light");
+	//font.setColor("White");
+	//font.setWeight("Light");
 	
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
@@ -216,7 +216,7 @@ void MainWindow::saveSnapshot() {
 	// Display feedback messagebox information for when snapshot is captured
 	QMessageBox msgBox;
 	msgBox.setStyleSheet(QString::fromUtf8("background-color:black;", "color: white"));
-	msgBox>setFont(font);
+	msgBox.setFont(font);
 	msgBox.setWindowTitle(QString("Image Information")); 
 	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	msgBox.setInformativeText(QString("        Photo Saved as: rgb%1.jpg").arg(snapshotCount));
