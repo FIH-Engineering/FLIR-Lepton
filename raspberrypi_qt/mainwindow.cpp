@@ -163,7 +163,7 @@ void MainWindow::saveSnapshot() {
 	int minOutput, maxOutput;
 	
     
-	
+	/*
 	//ATTEMPTING TO CHANGE SNAPSHOT COUNT
 	QFile snapFILE("snapshotNumber.txt");
 	snapFILE.open( QIODevice::Truncate| QIODevice::ReadWrite);
@@ -173,12 +173,13 @@ void MainWindow::saveSnapshot() {
 			{
 				QString snapREAD =snapFILE.readLine();
 			}
-			*/
+		
 			
 		//snapshotCount>>snapREAD;
 	 //	++snapshotCount;
 	snapFILE<<snapshotCount;
 	snapFILE.close();
+	*/
 	
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
     rawFile.open(QIODevice::Truncate | QIODevice::ReadWrite);
