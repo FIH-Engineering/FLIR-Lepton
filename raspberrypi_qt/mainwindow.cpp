@@ -169,7 +169,7 @@ void MainWindow::saveSnapshot() {
 	snapFILE.open( QIODevice::Truncate| QIODevice::ReadWrite);
 	QTextStream snapREAD(&snapFILE);
 			
-		/*	while (!snapFILE.atEnd())
+			while (!snapFILE.atEnd())
 			{
 				QString snapREAD =snapFILE.readLine();
 			}
@@ -219,4 +219,5 @@ void MainWindow::saveSnapshot() {
 	msgBox.button(QMessageBox::Ok)->setVisible(false); 
 	msgBox.button(QMessageBox::Ok)->animateClick(2000); 
 	msgBox.exec();	
+	++snapshotCount;
 }
