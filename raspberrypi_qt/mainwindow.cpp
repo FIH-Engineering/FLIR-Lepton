@@ -28,7 +28,7 @@
 #include "GPIOClass.h"
 using namespace std;
 int minTemp, maxTemp;
-//int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
+int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -164,26 +164,22 @@ void MainWindow::saveSnapshot() {
 	
     
 	
-	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
-	QFile snapshotNumber(QString("snapshotNumber.txt"));
-	snapshotNumber.open( QIODevice::Truncate| QIODevice::ReadWrite);
-	QTextStream snapshotOut(&snapshotNumber);
-	//if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
-    //{
-        //snapshotOut>>snapshotString;
-		Qstring snapshotString = snapshotOut.readLine();
-		snapshotNumber<<snapshotString;
-		//int snapshotCount = atoi(snapshotString.c_str());
-        ++snapshotCount;
-    //}
-    //else
-       // snapshotCount = 1; // if it does not exist, start from sequence 1.
-    // Before you exit your program, do not forget to store the last file sequence in "sequeceFile.txt".
-    snapshotOut<<snapshotCount;
-	//end of adding
+	//ATTEMPTING TO CHANGE SNAPSHOT COUNT
+	QFile snapFILE(QString("snapshotNumber.txt"));
+	snapFILE.open( QIODevice::Truncate| QIODevice::ReadWrite);
+	QTextStream snapREAD(&snapFILE);
+			QString snapREAD =snapFILE.readLine();
+			while (!snapFILE.isNull())
+			{
+				process_line(snapFILE);
+				snapREAD =snapFILE.readLine();
+			}
+			
+		snapshotCount = snapREAD;
+	 	++snapshotCount;
+	snapFILE<<snapshotCount;
 	
-
-    // Raw file format: binary, one word for min value, one for max value, then 80*60 words of raw data
+	
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
     rawFile.open(QIODevice::Truncate | QIODevice::ReadWrite);
     QDataStream rawOut(&rawFile);
