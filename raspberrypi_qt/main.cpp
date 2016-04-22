@@ -1,4 +1,8 @@
 #include <QApplication>
+#include <QLabel>
+#include <QMacStyle>
+#include <QWindowsStyle>
+#include <QStyle>
 
 #include "mainwindow.h"
 
