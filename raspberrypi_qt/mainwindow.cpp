@@ -177,7 +177,7 @@ void MainWindow::saveSnapshot() {
 	snapshotCount++;
 	snapFile.remove();
 	snapFile.open(QIODevice::ReadWrite | QIODevice::Text);
-	QTextStream snapOut(&snapFile);
+	// snapOut(&snapFile);
 	snapOut<<snapshotCount<<endl;
 	qDebug()<<snapshotCount;
 	snapFile.close();
