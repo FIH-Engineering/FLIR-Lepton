@@ -15,7 +15,7 @@
 #include <QPainter>
 #include <QFile>
 #include <QDataStream>
-
+#include <QIODevice>
 //button files?
 #include "mmapGpio.h"
 #include "stdio.h"
@@ -175,12 +175,10 @@ void MainWindow::saveSnapshot() {
 	qDebug()<<line;
 	snapFILE.close();*/
 	QFile snapFile(QString("snapshotNumber.txt"));
-	snapFile.open(QIODevice::Append | QIODevice::ReadWrite);
+	snapFile.open(QIODevice::Text | QIODevice::ReadOnly);
 	QTextStream snapOut(&snapFile);
-	QTextStream snapIn(&snapFile);
-	snapOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
-	while (!snapIn.atEnd()) {
-        QString line = snapIn.QIODevice::readAll();
+	while (!snapOut.atEnd()) {
+        QString line = snapOut.readAll();
 		qDebug()<<line;
 	}
 	snapFile.close();
