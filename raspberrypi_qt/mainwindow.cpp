@@ -166,7 +166,7 @@ void MainWindow::saveSnapshot() {
 
 	//ATTEMPTING TO CHANGE SNAPSHOT COUNT
 	QFile snapFILE("snapshotNumber.txt");
-	snapFILE.open( QIODevice::Truncate| QIODevice::ReadWrite);
+	snapFILE.open( QIODevice::Text| QIODevice::ReadWrite);
 	QTextStream snapREAD(&snapFILE);
 	//snapFILE>>snapshotCount;
 	QString line = snapFILE.readLine();
