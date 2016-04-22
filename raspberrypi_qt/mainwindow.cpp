@@ -165,7 +165,7 @@ void MainWindow::saveSnapshot() {
 	
 	
 	// Snapshot count index file
-	QFile snapFile(QString("snapshotNumber.txt"));
+	QFile snapFile(QString("/media/pi/63-BE-12A3/FIHDocuments/Other/snapshotNumber.txt"));
 	snapFile.open(QIODevice::ReadWrite | QIODevice::Text);
 	QTextStream snapOut(&snapFile);
 	while(!snapOut.atEnd())
@@ -177,7 +177,6 @@ void MainWindow::saveSnapshot() {
 	snapshotCount++;
 	snapFile.remove();
 	snapFile.open(QIODevice::ReadWrite | QIODevice::Text);
-	// snapOut(&snapFile);
 	snapOut<<snapshotCount<<endl;
 	qDebug()<<snapshotCount;
 	snapFile.close();
