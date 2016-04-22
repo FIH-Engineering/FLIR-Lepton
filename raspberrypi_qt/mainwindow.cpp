@@ -175,12 +175,13 @@ void MainWindow::saveSnapshot() {
 	qDebug()<<line;
 	snapFILE.close();*/
 	QFile snapFile(QString("snapshotNumber.txt"));
-	snapFile.open(QIODevice::Text | QIODevice::ReadOnly);
+	snapFile.open(QIODevice::Truncate | QIODevice::ReadWrite);
 	QTextStream snapOut(&snapFile);
 	while (!snapOut.atEnd()) {
         QString line = snapOut.readAll();
 		qDebug()<<line;
 	}
+	snapOut<<"MAYBE";
 	snapFile.close();
 
 	
