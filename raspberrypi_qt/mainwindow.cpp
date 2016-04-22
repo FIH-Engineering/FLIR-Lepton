@@ -48,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
 	this->setStyleSheet("background-color:black;");
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
-	mainWidget->setStyle(QMacStyle);
+	mainWidget->setStyle(new QMacStyle);
     imageLabel = new QLabel();
     layout->addWidget(imageLabel, 0, 0, Qt::AlignCenter);
 
