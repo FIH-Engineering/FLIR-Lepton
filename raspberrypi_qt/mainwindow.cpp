@@ -175,10 +175,10 @@ void MainWindow::saveSnapshot() {
 			}
 			*/
 			
-		snapshotCount>>snapREAD;
-	 	++snapshotCount;
+		//snapshotCount>>snapREAD;
+	 //	++snapshotCount;
 	snapFILE<<snapshotCount;
-	
+	snapFILE.close();
 	
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
     rawFile.open(QIODevice::Truncate | QIODevice::ReadWrite);
