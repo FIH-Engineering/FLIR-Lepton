@@ -182,7 +182,7 @@ void MainWindow::saveSnapshot() {
         QString line = snapOut.readLine(75);
 		qDebug()<<line;
 	}
-	//snapOut<<"MAYBE";
+	snapOut<<"helllloo";
 	snapFile.close();
 
 	
