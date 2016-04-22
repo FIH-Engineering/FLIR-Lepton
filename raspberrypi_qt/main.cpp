@@ -9,7 +9,8 @@
 int main( int argc, char **argv )
 {
     QApplication a(argc, argv);
-	a.setStyle(new QMacStyle);
+    QApplication::setStyle(new QMacStyle);
+
     MainWindow *mainWindow = new MainWindow();
 	//added//
 	//mainWindow->setStyle(new QMacStyle());
