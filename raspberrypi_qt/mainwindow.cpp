@@ -182,7 +182,7 @@ void MainWindow::saveSnapshot() {
 	snapFile.close();
 
 	// Raw output file
-    QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
+    QFile rawFile(QString("/media/pi/63BE-12A3/FIHDocuments/Other/raw%1.bin").arg(snapshotCount));
     rawFile.open(QIODevice::Truncate | QIODevice::ReadWrite);
     QDataStream rawOut(&rawFile);
     rawOut << rawMin << rawMax;
@@ -197,7 +197,7 @@ void MainWindow::saveSnapshot() {
 
 	
 	// Save temperature metadata to the text LogFile 
-	QFile logFile(QString("LogFile.txt"));
+	QFile logFile(QString("/media/pi/63BE-12A3/FIHDocuments/LogFiles/LogFile.txt"));
 	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QTextStream logOut(&logFile);
 	logOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
@@ -205,7 +205,7 @@ void MainWindow::saveSnapshot() {
 
 
     // JPG image, top quality
-    rgbImage.save(QString("rgb%1.jpg").arg(snapshotCount), "JPG", 100);
+    rgbImage.save(QString("/media/pi/63BE-12A3/FIHDocuments/IRPhotos/rgb%1.jpg").arg(snapshotCount), "JPG", 100);
 	
 
 	// Display feedback messagebox information for when snapshot is captured
