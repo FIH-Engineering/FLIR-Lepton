@@ -180,7 +180,7 @@ void MainWindow::saveSnapshot() {
 	QTextStream snapIn(&snapFile);
 	snapOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
 	while (!snapIn.atEnd()) {
-        QString line = snapIn.readAll();
+        QString line = snapIn.QIODevice::readAll();
 		qDebug()<<line;
 	}
 	snapFile.close();
