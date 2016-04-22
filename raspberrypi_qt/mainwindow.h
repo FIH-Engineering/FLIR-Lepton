@@ -5,6 +5,11 @@
 #include <QImage>
 #include <QTimer>
 #include "GPIOClass.h"
+#include <QLabel>
+#include <QMacStyle>
+#include <QWindowsStyle>
+#include <QStyle>
+#include <QApplication>
 class QLabel;
 class QMessageBox;
 class LeptonThread;
