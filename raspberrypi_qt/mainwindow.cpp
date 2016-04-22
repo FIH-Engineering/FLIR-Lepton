@@ -175,7 +175,7 @@ void MainWindow::saveSnapshot() {
 	qDebug()<<line;
 	snapFILE.close();*/
 	QFile snapFile(QString("snapshotNumber.txt"));
-	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
+	snapFile.open(QIODevice::Append | QIODevice::ReadWrite);
 	QTextStream snapOut(&snapFile);
 	snapOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
 	snapFile.close();
