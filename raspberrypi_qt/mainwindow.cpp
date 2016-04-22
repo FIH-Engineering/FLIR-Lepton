@@ -2,6 +2,8 @@
 #include "LeptonThread.h"
 
 #include <QLabel>
+#include <QMacStyle>
+#include <QWindowsStyle>
 #include <QStyle>
 #include <QApplication>
 #include <QPushButton>
@@ -46,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
 	this->setStyleSheet("background-color:black;");
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
-	mainwidget->setStyle(new QMactintosh);
+	mainWidget->setStyle(QMacStyle);
     imageLabel = new QLabel();
     layout->addWidget(imageLabel, 0, 0, Qt::AlignCenter);
 
