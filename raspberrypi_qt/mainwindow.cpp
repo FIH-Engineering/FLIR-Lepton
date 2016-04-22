@@ -165,17 +165,17 @@ void MainWindow::saveSnapshot() {
     
 	
 	//ATTEMPTING TO CHANGE SNAPSHOT COUNT
-	QFile snapFILE(QString("snapshotNumber.txt"));
+	QFile snapFILE("snapshotNumber.txt");
 	snapFILE.open( QIODevice::Truncate| QIODevice::ReadWrite);
 	QTextStream snapREAD(&snapFILE);
-			QString snapREAD =snapFILE.readLine();
-			while (!snapFILE.isNull())
-			{
-				process_line(snapFILE);
-				snapREAD =snapFILE.readLine();
-			}
 			
-		snapshotCount = snapREAD;
+		/*	while (!snapFILE.atEnd())
+			{
+				QString snapREAD =snapFILE.readLine();
+			}
+			*/
+			
+		snapshotCount>>snapREAD;
 	 	++snapshotCount;
 	snapFILE<<snapshotCount;
 	
