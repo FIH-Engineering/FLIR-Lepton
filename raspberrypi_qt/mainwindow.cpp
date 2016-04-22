@@ -166,13 +166,13 @@ void MainWindow::saveSnapshot() {
 	
 	//ATTEMPTING TO CHANGE CNAPSHOT COUNT
 	QFile snapshotNumber(QString("snapshotNumber.txt"));
-	snapshotNumber.open(QIODevice::ReadWrite | QIODevice::Append);
+	snapshotNumber.open( QIODevice::Truncate| QIODevice::ReadWrite);
 	QTextStream snapshotOut(&snapshotNumber);
 	//if (snapshotNumber.open(QIODevice::ReadWrite| QIODevice::Truncate))
     //{
         //snapshotOut>>snapshotString;
 		Qstring snapshotString = snapshotOut.readLine();
-		cout<<snapshotString;
+		snapshotNumber<<snapshotString;
 		//int snapshotCount = atoi(snapshotString.c_str());
         ++snapshotCount;
     //}
