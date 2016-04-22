@@ -165,15 +165,20 @@ void MainWindow::saveSnapshot() {
     
 
 	//ATTEMPTING TO CHANGE SNAPSHOT COUNT
-	QFile snapFILE("snapshotNumber.txt");
+	/*QFile snapFILE("snapshotNumber.txt");
 	//snapFILE.open( QIODevice::Text| QIODevice::ReadWrite);
-	if (!snapFILE.open(QIODevice::Text| QIODevice::ReadWrite))
+	if (!snapFILE.open(QIODevice::Text| QIODevice::ReadOnly))
 		qDebug()<<"NOT OPEN ABOOOORRRTTT";
 	QTextStream snapREAD(&snapFILE);
 	//snapFILE>>snapshotCount;
-	QString line = snapREAD.readLine();
+	QString line = snapREAD.
 	qDebug()<<line;
-	snapFILE.close();
+	snapFILE.close();*/
+	QFile snapFile(QString("snapshotNumber.txt"));
+	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
+	QTextStream snapOut(&snapFile);
+	snapOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
+	snapFile.close();
 
 	
     QFile rawFile(QString("raw%1.bin").arg(snapshotCount));
