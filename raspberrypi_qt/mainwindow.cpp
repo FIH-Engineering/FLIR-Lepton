@@ -169,6 +169,7 @@ void MainWindow::saveSnapshot() {
 	snapFILE.open( QIODevice::Truncate| QIODevice::ReadWrite);
 	QTextStream snapREAD(&snapFILE);
 	snapFILE>>snapshotCount;
+	qDebug()<<snapshotCount;
 	snapFILE.close();
 
 	
