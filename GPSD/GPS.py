@@ -41,6 +41,7 @@ if __name__ == '__main__':
       button = GPIO.input(17)
 	  
       with open("index.txt", "rb") as ind:
+	  #change file name to "/media/pi/63BE-12A3/FIHDocuments/Other/    other index files saved there in USB
 	    index = ind.readline()
 	    number = int(index)
       
@@ -50,7 +51,9 @@ if __name__ == '__main__':
         longitude = gpsd.fix.longitude
         time1 = gpsd.utc,' + ', gpsd.fix.time
         gpsdLog = open("GPSLOG.txt", "a")
+		# change file name to /media/pi/63BE-12A3/FIHDocuments/LogFiles/    other log file saved there in USB
         indfile = open("index.txt", "w")
+		#same as above
         print("image", number, sep = "*", end="  *  ",file=gpsdLog)
         number = number + 1
         print(number, file = indfile)

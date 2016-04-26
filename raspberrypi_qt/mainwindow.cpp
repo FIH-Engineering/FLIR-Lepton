@@ -29,7 +29,6 @@
 using namespace std;
 int minTemp, maxTemp;
 QString line;
-//int MainWindow::snapshotCount = 0; //TAKE OUT AFTER ADD CODE
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -40,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
 	// Create initial layout for GUI displaying the IR picture
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
-	this->setStyleSheet("background-color:black;");
+	//this->setStyleSheet("background-color:black;");
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
 
@@ -59,7 +58,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	// Format Labels   
 	QFont font;
-	font.setPointSize(32); ////////may be too big for Maxtemp. digits might spill over
+	font.setPointSize(24); ////////may be too big for Maxtemp. digits might spill over
 	font.setFamily("Helvetica");
 	//font.setLight(true);
 	
@@ -68,10 +67,10 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
-		maxlabel->setStyleSheet("color: white");
+		//maxlabel->setStyleSheet("color: white");
 		maxlabel->setFont(font);
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp)); 
-		minlabel->setStyleSheet("color: white");
+		//minlabel->setStyleSheet("color: white");
 		minlabel->setFont(font);
     
 	
@@ -113,7 +112,6 @@ void MainWindow::readInputPin(void)
     cout << "Current input pin state is " << inputstate  <<endl;
 	if(inputstate == "0") // if input pin is at state "0" i.e. button pressed
     {
-		//snapshotButton->click();
 		saveSnapshot();
 		cout << "picture saved" << endl;
     }
