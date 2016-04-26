@@ -2,6 +2,10 @@
 #include "LeptonThread.h"
 
 #include <QLabel>
+#include <QMacStyle>
+#include <QWindowsStyle>
+#include <QStyle>
+#include <QApplication>
 #include <QPushButton>
 #include <QTimer>
 #include <QMessageBox>
@@ -30,6 +34,7 @@ using namespace std;
 int minTemp, maxTemp;
 QString line;
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , rawData(LeptonThread::FrameWords)
@@ -42,7 +47,6 @@ MainWindow::MainWindow(QWidget *parent)
 	//this->setStyleSheet("background-color:black;");
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
-
     imageLabel = new QLabel();
     layout->addWidget(imageLabel, 0, 0, Qt::AlignCenter);
 
@@ -59,8 +63,14 @@ MainWindow::MainWindow(QWidget *parent)
 	// Format Labels   
 	QFont font;
 	font.setPointSize(24); ////////may be too big for Maxtemp. digits might spill over
+<<<<<<< HEAD
 	font.setFamily("Helvetica");
 	//font.setLight(true);
+=======
+	font.setFamily("Courier");
+	//font.setColor("White");
+	//font.setWeight("Light");
+>>>>>>> origin/master
 	
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
@@ -208,7 +218,8 @@ void MainWindow::saveSnapshot() {
 
 	// Display feedback messagebox information for when snapshot is captured
 	QMessageBox msgBox;
-	//msgBox.setStyleSheet(QString::fromUtf8("background-color:black;"));
+	msgBox.setStyleSheet(QString::fromUtf8("background-color:black;", "color: white"));
+	msgBox.setFont(font);
 	msgBox.setWindowTitle(QString("Image Information")); 
 	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	msgBox.setInformativeText(QString("        Photo Saved as: rgb%1.jpg").arg(snapshotCount));
