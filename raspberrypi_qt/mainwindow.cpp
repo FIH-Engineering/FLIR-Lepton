@@ -63,14 +63,14 @@ MainWindow::MainWindow(QWidget *parent)
 	// Format Labels   
 	QFont font;
 	font.setPointSize(24); ////////may be too big for Maxtemp. digits might spill over
-<<<<<<< HEAD
+
 	font.setFamily("Helvetica");
 	//font.setLight(true);
-=======
+
 	font.setFamily("Courier");
 	//font.setColor("White");
 	//font.setWeight("Light");
->>>>>>> origin/master
+
 	
 	
 	layout->addWidget(minlabel, 1, 0, Qt::AlignLeft);
