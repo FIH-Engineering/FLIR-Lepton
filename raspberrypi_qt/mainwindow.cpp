@@ -218,8 +218,8 @@ void MainWindow::saveSnapshot() {
 
 	// Display feedback messagebox information for when snapshot is captured
 	QMessageBox msgBox;
-	msgBox.setStyleSheet(QString::fromUtf8("background-color:black;", "color: white"));
-	msgBox.setFont(font);
+	//msgBox.setStyleSheet(QString::fromUtf8("background-color:black;", "color: white"));
+	//msgBox.setFont(font);
 	msgBox.setWindowTitle(QString("Image Information")); 
 	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	msgBox.setInformativeText(QString("        Photo Saved as: rgb%1.jpg").arg(snapshotCount));
