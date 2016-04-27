@@ -205,11 +205,11 @@ void MainWindow::saveSnapshot() {
 
 	
 	// Save temperature metadata to the text LogFile 
-	QFile logFile(QString("/media/pi/63BE-12A3/FIHDocuments/LogFiles/LogFile.txt"));
-	logFile.open(QIODevice::Append | QIODevice::ReadWrite);
-	QTextStream logOut(&logFile);
-	logOut<<" Picture Name: "<<QString("rgb%1.jpg").arg(snapshotCount)<<" Min Output Temperature:"<<minOutput<<" Max Output Temperature: "<<maxOutput<<" \n";
-	logFile.close();
+	QFile cameralog(QString("/media/pi/63BE-12A3/FIHDocuments/LogFiles/cameralog.txt"));
+	cameralog.open(QIODevice::Append | QIODevice::ReadWrite);
+	QTextStream logOut(&cameralog);
+	logOut<<QString("*rgb%1.jpg").arg(snapshotCount)<<", "<<"&"<<minOutput<<", "<<"!"<<maxOutput<<" \n";
+	cameralog.close();
 
 
     // JPG image, top quality
