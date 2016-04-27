@@ -14,7 +14,7 @@ LeptonThread::~LeptonThread() { }
 #if HAVE_LEPTON
 const char *LeptonThread::device = "/dev/spidev0.1"; // Change to 0.0 if necessary!
 unsigned char LeptonThread::mode = 0, LeptonThread::bits = 8;
-unsigned int LeptonThread::speed = 16000000;
+unsigned int LeptonThread::speed = 8000000;
 unsigned short LeptonThread::delay = 0;
 QVector<unsigned char> LeptonThread::tx(LeptonThread::RowPacketBytes, 0);
 
