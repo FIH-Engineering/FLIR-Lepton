@@ -12,7 +12,7 @@ gpsd = None #seting the global variable
  
 os.system('clear') #clear the terminal (optional)
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 class GpsPoller(threading.Thread):
   def __init__(self):
@@ -38,7 +38,7 @@ if __name__ == '__main__':
       os.system('clear')
 	  
       #GPIO read
-      button = GPIO.input(18)
+      button = GPIO.input(17)
 	  
       with open("/media/pi/63BE-12A3/FIHDocuments/Other/index.txt", "rb") as ind:
       	#change file name to "/media/pi/63BE-12A3/FIHDocuments/Other/    other index files saved there in USB
@@ -61,7 +61,7 @@ if __name__ == '__main__':
         print(latitude, sep = "*", end="  *  ",file=gpsdLog)
         print(longitude, sep = "*", end="  *  ",file=gpsdLog)
         print(time1, sep = "+", end="\n",file=gpsdLog)
-        print("button was pressed")
+        #print("button was pressed")
         gpsdLog.close()
         button = True
         time.sleep(1) #delay
