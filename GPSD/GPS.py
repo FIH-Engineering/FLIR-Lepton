@@ -49,18 +49,18 @@ if __name__ == '__main__':
       if button == False:
         latitude = gpsd.fix.latitude
         longitude = gpsd.fix.longitude
-        time1 = gpsd.utc,' + ', gpsd.fix.time
+        time1 = gpsd.utc
         gpsdLog = open("/media/pi/63BE-12A3/FIHDocuments/LogFiles/GPSLOG.txt", "a")
 		# change file name to /media/pi/63BE-12A3/FIHDocuments/LogFiles/    other log file saved there in USB
         indfile = open("/media/pi/63BE-12A3/FIHDocuments/Other/index.txt", "w")
 		#same as above
-        print("image", number, sep = "*", end="  *  ",file=gpsdLog)
+        print("image" + number, sep = '', end=" * ", file=gpsdLog)
         number = number + 1
         print(number, file = indfile)
         indfile.close()
-        print(latitude, sep = "*", end="  *  ",file=gpsdLog)
-        print(longitude, sep = "*", end="  *  ",file=gpsdLog)
-        print(time1, sep = "+", end="\n",file=gpsdLog)
+        print('@'+ latitude, end = ', ' , file=gpsdLog)
+        print('#' + longitude, end=", ", file=gpsdLog)
+        print('$' + time1, end="\n", file=gpsdLog)
         #print("button was pressed")
         gpsdLog.close()
         button = True
