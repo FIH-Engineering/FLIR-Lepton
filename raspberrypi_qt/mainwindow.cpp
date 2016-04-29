@@ -62,7 +62,7 @@ MainWindow::MainWindow(QWidget *parent)
 	
 	// Format Labels   
 	QFont font;
-	font.setPointSize(24); ////////may be too big for Maxtemp. digits might spill over
+	font.setPointSize(24);
 
 	font.setFamily("Helvetica");
 	//font.setLight(true);
@@ -139,7 +139,9 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	maxTemp = (maxValue - 7063.78)/15.98;
 	minTemp = (minValue - 7063.78)/15.98;
 	qDebug()<<"Max Temp"<<maxTemp;
+	qDebug()<<"RAW MAX"<<rawMax;
 	qDebug()<<"Min Temp"<<minTemp;
+	qDebug()<<"RAW MIN"<<rawMin;
 
     // Map "rawData" to rgb values in "rgbImage" via the colormap
     int diff = maxValue - minValue + 1;
