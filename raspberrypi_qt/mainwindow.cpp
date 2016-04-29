@@ -103,8 +103,8 @@ MainWindow::MainWindow(QWidget *parent)
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
 	 
-	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
-	pintimer->start(250);
+	//connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
+	//pintimer->start(250);
 
 			
 	   
