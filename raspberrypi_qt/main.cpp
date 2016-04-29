@@ -9,11 +9,8 @@
 int main( int argc, char **argv )
 {
     QApplication a(argc, argv);
-    //a.setStyle(new QWindowsStyle());
 
     MainWindow *mainWindow = new MainWindow();
-	//added//
-	//mainWindow->setStyle(new QMacStyle());
     mainWindow->setWindowState(Qt::WindowFullScreen); 
     mainWindow->show();
 

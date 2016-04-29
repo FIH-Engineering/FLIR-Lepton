@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "LeptonThread.h"
-
 #include <QLabel>
 #include <QMacStyle>
 #include <QWindowsStyle>
@@ -20,7 +19,6 @@
 #include <QFile>
 #include <QDataStream>
 #include <QIODevice>
-//button files?
 #include "mmapGpio.h"
 #include "stdio.h"
 #include "GPIOClass.h"
@@ -44,7 +42,6 @@ MainWindow::MainWindow(QWidget *parent)
 	// Create initial layout for GUI displaying the IR picture
     QWidget *mainWidget = new QWidget();
     setCentralWidget(mainWidget);
-	//this->setStyleSheet("background-color:black;");
     layout = new QGridLayout();
     mainWidget->setLayout(layout);
     imageLabel = new QLabel();
@@ -63,13 +60,9 @@ MainWindow::MainWindow(QWidget *parent)
 	// Format Labels   
 	QFont font;
 	font.setPointSize(24);
-
 	font.setFamily("Helvetica");
-	//font.setLight(true);
-
 	font.setFamily("Courier");
-	//font.setColor("White");
-	//font.setWeight("Light");
+
 
 	
 	
@@ -77,10 +70,8 @@ MainWindow::MainWindow(QWidget *parent)
 	layout->addWidget(maxlabel, 1, 0, Qt::AlignRight);
 	
 	maxlabel->setText(QString("Max Temp: %1 ").arg(maxTemp));
-		//maxlabel->setStyleSheet("color: white");
 		maxlabel->setFont(font);
 	minlabel->setText(QString("Min Temp: %1 ").arg(minTemp)); 
-		//minlabel->setStyleSheet("color: white");
 		minlabel->setFont(font);
     
 	
@@ -103,8 +94,8 @@ MainWindow::MainWindow(QWidget *parent)
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
 	 
-	//connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
-	//pintimer->start(250);
+	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
+	pintimer->start(250);
 
 			
 	   
@@ -220,8 +211,6 @@ void MainWindow::saveSnapshot() {
 
 	// Display feedback messagebox information for when snapshot is captured
 	QMessageBox msgBox;
-	//msgBox.setStyleSheet(QString::fromUtf8("background-color:black;", "color: white"));
-	//msgBox.setFont(font);
 	msgBox.setWindowTitle(QString("Image Information")); 
 	QSpacerItem* horizontalSpacer = new QSpacerItem(500, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
 	msgBox.setInformativeText(QString("        Photo Saved as: rgb%1.jpg").arg(snapshotCount));
