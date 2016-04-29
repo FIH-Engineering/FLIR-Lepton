@@ -201,7 +201,7 @@ void MainWindow::saveSnapshot() {
 	QFile cameralog(QString("/media/pi/63BE-12A3/FIHDocuments/LogFiles/cameralog.txt"));
 	cameralog.open(QIODevice::Append | QIODevice::ReadWrite);
 	QTextStream logOut(&cameralog);
-	logOut<<QString("*rgb%1.jpg").arg(snapshotCount)<<", "<<"&"<<minOutput<<", "<<"!"<<maxOutput<<endl;
+	logOut<<QString("*rgb%1.jpg").arg(snapshotCount)<<", "<<"&"<<minOutput<<", "<<"!"<<maxOutput<<","<<endl;
 	cameralog.close();
 
 
