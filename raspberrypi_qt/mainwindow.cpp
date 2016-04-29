@@ -103,8 +103,8 @@ MainWindow::MainWindow(QWidget *parent)
 	gpio17->export_gpio();
 	gpio17->setdir_gpio("in");
 	 
-	//connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
-	//pintimer->start(250);
+	connect(pintimer, SIGNAL(timeout()), this, SLOT(readInputPin()));
+	pintimer->start(250);
 
 			
 	   
@@ -136,8 +136,6 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	
 	
 	//Calculate max and min temp
-	//maxTemp = (maxValue - 7063.78)/15.98;
-	//minTemp = (minValue - 7063.78)/15.98;
 	maxTemp = (maxValue*0.0492) - 333.53;
 	minTemp = (minValue*0.0492) - 333.53;
 	qDebug()<<"Max Temp"<<maxTemp;
