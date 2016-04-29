@@ -139,7 +139,7 @@ void MainWindow::updateImage(unsigned short *data, int minValue, int maxValue){
 	//maxTemp = (maxValue - 7063.78)/15.98;
 	//minTemp = (minValue - 7063.78)/15.98;
 	maxTemp = (maxValue*0.0492) - 333.53;
-	minTemp = (maxValue*0.0492) - 333.53;
+	minTemp = (minValue*0.0492) - 333.53;
 	qDebug()<<"Max Temp"<<maxTemp;
 	qDebug()<<"RAW MAX"<<rawMax;
 	qDebug()<<"Min Temp"<<minTemp;
